@@ -1,0 +1,2575 @@
+{
+ "aggiornato": "2026-11-11",
+ "nota": "Prezzi e numeri come pubblicati da Salesforce e fonti indicate su ogni carta; possono cambiare.",
+ "categorie": [
+  {
+   "id": "ai",
+   "nome": "Piattaforma e AI"
+  },
+  {
+   "id": "cloud",
+   "nome": "Cloud"
+  },
+  {
+   "id": "settori",
+   "nome": "Settori"
+  },
+  {
+   "id": "estero",
+   "nome": "Casi esteri"
+  },
+  {
+   "id": "italia",
+   "nome": "Casi Italia"
+  },
+  {
+   "id": "situazioni",
+   "nome": "Situazioni"
+  }
+ ],
+ "carte": [
+  {
+   "id": "customer-360",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Customer 360: qual è l'idea?",
+   "nome": "Customer 360",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Una sola visione del cliente condivisa da vendite, assistenza, marketing e commerce, sulla stessa piattaforma e sugli stessi dati."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Ogni reparto vede la stessa storia del cliente, invece di dati sparsi in sistemi diversi",
+      "Oggi è uno dei quattro strati di Agentforce 360 (le «Customer 360 Apps»)"
+     ]
+    },
+    {
+     "h": "Quando citarlo",
+     "t": "Quando il prospect dice che ogni reparto ha il suo Excel o il suo gestionale."
+    },
+    {
+     "h": "Esempio",
+     "t": "Ercopac è passata da sistemi separati a una vista unica e centralizzata di ogni cliente."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · caso Ercopac",
+     "u": "https://www.salesforce.com/it/customer-stories/ercopac-grows-with-salesforce/"
+    }
+   ]
+  },
+  {
+   "id": "agentforce",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agentforce: che cos'è, in parole semplici?",
+   "nome": "Agentforce",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "La piattaforma di Salesforce per creare agenti AI che non si limitano a rispondere: capiscono la richiesta, ragionano e compiono azioni nei sistemi aziendali, insieme alle persone."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Diverso dal chatbot classico: niente percorsi fissi, l'agente decide i passi e usa i dati del CRM",
+      "Rispetta i permessi esistenti e passa a una persona quando serve, con il riassunto",
+      "Si usa in vendite, assistenza, marketing, commerce e processi interni"
+     ]
+    },
+    {
+     "h": "Quando citarlo",
+     "t": "Ogni volta che il prospect ha tante richieste o attività ripetitive che rubano tempo alle persone."
+    },
+    {
+     "h": "Esempio",
+     "t": "Telepass: l'agente risolve da solo l'87% delle richieste."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · Trusted AI e Trust Layer",
+     "u": "https://www.salesforce.com/artificial-intelligence/trusted-ai/"
+    },
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    }
+   ]
+  },
+  {
+   "id": "agentforce-360",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agentforce 360: quali sono i 4 strati?",
+   "nome": "Agentforce 360",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Lanciato a ottobre 2025 al Dreamforce: il «pacchetto» che mette insieme persone, agenti AI e dati."
+    },
+    {
+     "h": "I 4 strati",
+     "l": [
+      "Agentforce 360 Platform: la base per costruire e governare gli agenti",
+      "Data 360: i dati unificati che danno contesto agli agenti",
+      "Customer 360 Apps: Sales, Service, Marketing, Commerce… con agenti integrati",
+      "Slack: dove persone e agenti lavorano insieme"
+     ]
+    },
+    {
+     "h": "Numero da ricordare",
+     "t": "Al lancio, ottobre 2025: 12.000 clienti su Agentforce 360."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "atlas-agent-script",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Atlas Reasoning Engine e Agent Script: a cosa servono?",
+   "nome": "Atlas",
+   "alias": [
+    "Agent Script",
+    "Atlas Reasoning Engine"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Atlas è il motore che decide come ragiona l'agente; Agent Script fissa regole e limiti precisi. Insieme danno un ragionamento ibrido: flessibile dove serve, rigido dove deve esserlo."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "L'AI generativa gestisce la conversazione libera",
+      "Le regole fisse garantiscono che i passaggi critici vadano sempre allo stesso modo",
+      "È la risposta all'obiezione «e se l'AI fa di testa sua?»"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Siemens usa circa 50 regole in Agent Script per decidere quali lead passare ai venditori."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · caso Siemens",
+     "u": "https://www.salesforce.com/customer-stories/siemens/agentic-sales-leads"
+    }
+   ]
+  },
+  {
+   "id": "agentforce-builder",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agentforce Builder: come si costruisce un agente?",
+   "nome": "Agentforce Builder",
+   "alias": [
+    "Agent Builder"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Uno studio conversazionale: descrivi in linguaggio naturale cosa deve fare l'agente, lo provi e lo pubblichi, senza scrivere codice."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Testing Center per provare l'agente prima di andare live",
+      "Observability per vedere come lavora in produzione e dove sbaglia",
+      "Novità di settembre 2026: Agent Optimizer, test A/B, test su voce e conversazioni a più passaggi"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Moneyfarm ha creato il suo agente in pochi giorni; Telepass ha automatizzato il 70% dei test."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    },
+    {
+     "t": "Salesforce · caso Moneyfarm",
+     "u": "https://www.salesforce.com/it/customer-stories/moneyfarm/"
+    },
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    }
+   ]
+  },
+  {
+   "id": "data-360",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Data 360: cos'è e come si chiamava prima?",
+   "nome": "Data 360",
+   "alias": [
+    "Data Cloud"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Lo strato dati di Salesforce: unisce i dati sparsi in un profilo unico e aggiornato, che dà contesto alle persone e agli agenti. Prima si chiamava Data Cloud (nuovo nome da ottobre 2025)."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Collega molte fonti, anche senza copiare i dati (approccio «zero copy», per esempio con Snowflake)",
+      "Senza dati unificati un agente risponde in modo generico: con Data 360 risponde sul singolo cliente",
+      "Vecchi nomi che puoi sentire: Salesforce CDP, Genie, Data Cloud"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Euronics ha messo in Data 360 il catalogo di 26.000 prodotti usato dal suo agente."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce Ben · Data Cloud diventa Data 360",
+     "u": "https://www.salesforceben.com/salesforce-data-cloud-renamed-to-data-360-as-part-of-agentforce-360/"
+    },
+    {
+     "t": "Salesforce · caso Siemens",
+     "u": "https://www.salesforce.com/customer-stories/siemens/agentic-sales-leads"
+    },
+    {
+     "t": "Salesforce · caso Euronics Italia",
+     "u": "https://www.salesforce.com/customer-stories/euronics-italia/"
+    }
+   ]
+  },
+  {
+   "id": "trust-layer",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Trust Layer: come protegge i dati quando si usa l'AI?",
+   "nome": "Trust Layer",
+   "alias": [
+    "Einstein Trust Layer"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "È il livello di sicurezza tra i dati aziendali e i modelli AI. Nato come Einstein Trust Layer, oggi Salesforce lo chiama Salesforce Trust Layer."
+    },
+    {
+     "h": "Cosa fa",
+     "l": [
+      "Recupera solo i dati che l'utente ha il permesso di vedere",
+      "Zero data retention: prompt e risposte non vengono conservati né usati per addestrare modelli esterni",
+      "Maschera i dati sensibili prima di inviarli al modello",
+      "Controlla in tempo reale contenuti tossici o fuori policy"
+     ]
+    },
+    {
+     "h": "Quando citarlo",
+     "t": "Obiezione «non voglio dare i dati dei miei clienti a un'AI»."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Trusted AI e Trust Layer",
+     "u": "https://www.salesforce.com/artificial-intelligence/trusted-ai/"
+    }
+   ]
+  },
+  {
+   "id": "hyperforce",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Hyperforce e EU Operating Zone: perché interessano a un cliente italiano?",
+   "nome": "Hyperforce",
+   "alias": [
+    "EU Operating Zone"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Hyperforce è l'infrastruttura di Salesforce sui grandi cloud pubblici. Con la EU Operating Zone i dati vengono conservati ed elaborati nell'Unione Europea."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Lanciata a marzo 2023, con sicurezza zero trust, cifratura e supporto da personale in UE",
+      "Utile con banche, sanità, pubblica amministrazione e chi ha dubbi sul GDPR",
+      "Anche Life Sciences Cloud gira su Hyperforce"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Hyperforce EU Operating Zone",
+     "u": "https://www.salesforce.com/news/press-releases/2023/03/02/hyperforce-eu-operating-zone-news/"
+    },
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    }
+   ]
+  },
+  {
+   "id": "informatica",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Informatica: perché Salesforce l'ha comprata?",
+   "nome": "Informatica",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Acquisizione completata il 18 novembre 2025, circa 8 miliardi di dollari. Informatica gestisce qualità e governance dei dati aziendali."
+    },
+    {
+     "h": "Cosa porta",
+     "l": [
+      "Catalogo, integrazione, qualità e privacy dei dati, master data management",
+      "Rafforza Data 360: dati affidabili vuol dire agenti affidabili",
+      "Insieme a MuleSoft completa l'offerta di integrazione"
+     ]
+    },
+    {
+     "h": "Quando citarlo",
+     "t": "Aziende grandi con dati duplicati o «sporchi» tra ERP, CRM e altri sistemi."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · acquisizione di Informatica completata",
+     "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+    },
+    {
+     "t": "Pulse 2.0 · valore dell'operazione Informatica",
+     "u": "https://pulse2.com/salesforce-completes-8-billion-acquisition-of-informatica-to-accelerate-agentic-ai-data-platform/"
+    }
+   ]
+  },
+  {
+   "id": "mulesoft",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "MuleSoft: a cosa serve?",
+   "nome": "MuleSoft",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Collega applicazioni e sistemi tramite API e automatizza i processi tra loro: porta i dati dove servono."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Integra ERP, sistemi legacy e database esterni con Salesforce",
+      "Gestisce e governa le API dell'azienda"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Takeda ha caricato oltre 3.100 documenti medici regolati tramite MuleSoft; Telepass lo usa per collegare i suoi sistemi."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · caso Takeda",
+     "u": "https://www.salesforce.com/customer-stories/takeda"
+    },
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    }
+   ]
+  },
+  {
+   "id": "tableau",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Tableau: che ruolo ha nell'offerta?",
+   "nome": "Tableau",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "La parte di analisi dei dati: dashboard e analisi per trasformare i numeri in decisioni."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Tableau Semantics, dentro Data 360, dà definizioni comuni delle metriche a persone e agenti",
+      "Si ritrova nelle app di settore, per esempio le dashboard per gli informatori in Life Sciences"
+     ]
+    },
+    {
+     "h": "Quando citarlo",
+     "t": "Il management non ha visibilità su pipeline, visite o risultati."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    }
+   ]
+  },
+  {
+   "id": "slack",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Slack: perché è nell'offerta e cos'è Slackforce?",
+   "nome": "Slack",
+   "alias": [
+    "Slackforce",
+    "Slackbot"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Slack è lo spazio dove persone e agenti lavorano insieme. Con Slackforce (settembre 2026) il CRM entra direttamente nelle conversazioni."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Slack CRM: crei account, registri note di chiamata e aggiorni record senza uscire da Slack",
+      "Slackbot usa conversazioni e dati Salesforce per agire, per esempio riassegnare un account o scrivere una mail",
+      "È uno dei 4 strati di Agentforce 360"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "SaaStr riceve su Slack l'avviso con il contesto quando l'agente trova un lead caldo."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    },
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · caso SaaStr",
+     "u": "https://www.salesforce.com/customer-stories/saastr-ai/agentic-outreach"
+    }
+   ]
+  },
+  {
+   "id": "aiforce",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "AIforce: cos'è e quali sono le sue 3 parti?",
+   "nome": "AIforce",
+   "alias": [
+    "Claudeforce",
+    "Slackforce",
+    "Agentforce Coworker"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Annunciato a settembre 2026: porta dati, processi e permessi di Salesforce in qualsiasi interfaccia AI, non solo dentro Salesforce."
+    },
+    {
+     "h": "Le 3 parti",
+     "l": [
+      "Claudeforce: Salesforce dentro Claude (in beta)",
+      "Slackforce: Salesforce dentro Slack",
+      "Agentforce Coworker: il collega AI dentro Salesforce"
+     ]
+    },
+    {
+     "h": "Perché conta",
+     "t": "Le persone lavorano dove preferiscono, mentre il CRM resta la fonte di dati e regole."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    }
+   ]
+  },
+  {
+   "id": "coworker",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agentforce Coworker: cosa fa?",
+   "nome": "Agentforce Coworker",
+   "alias": [
+    "Coworker"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Un collega AI dentro Salesforce: risponde su account, attività e storico, prepara piani e li esegue, e può richiamare gli agenti già attivi."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Usa i permessi esistenti: si attiva con un pulsante, senza migrazioni",
+      "100.000 utenti lo hanno attivato nei primi 35 giorni",
+      "Licenza di listino: 50 $ per utente al mese"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Fulton Bank è passata da zero a oltre 20 casi d'uso in produzione, per circa 3.000 utenti, in poche settimane."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    },
+    {
+     "t": "Salesforce · prezzi Agentforce",
+     "u": "https://www.salesforce.com/agentforce/pricing/"
+    }
+   ]
+  },
+  {
+   "id": "claudeforce",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Claudeforce: cosa permette di fare?",
+   "nome": "Claudeforce",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Nato dalla partnership tra Salesforce e Anthropic: collega Claude a Salesforce senza configurazioni, con 37 competenze di vendita già pronte."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "In beta per tutti i clienti, dopo i pilota con Deloitte, GitLab e Legora",
+      "Per gli sviluppatori: plug-in per Claude Code con oltre 40 skill",
+      "In arrivo competenze per assistenza, marketing, commerce e settori"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    }
+   ]
+  },
+  {
+   "id": "agenti-pronti",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agenti «pronti al lavoro» di settembre 2026: chi fa cosa?",
+   "nome": "pronti al lavoro",
+   "alias": [
+    "Piper",
+    "Hunter",
+    "Casey",
+    "Carter",
+    "Paige",
+    "Marshall",
+    "Fin"
+   ],
+   "retro": [
+    {
+     "h": "Chi fa cosa",
+     "l": [
+      "Piper: lead in entrata da sito e mail, li qualifica e crea pipeline",
+      "Hunter: vendita in uscita, dalla ricerca all'outreach, per settimane o mesi",
+      "Casey: assistenza clienti su voce, SMS, WhatsApp e chat",
+      "Carter: aiuta chi compra online a scegliere e pagare",
+      "Paige: richieste interne IT e HR",
+      "Marshall: processi di back office e supply chain",
+      "Fin: assistenza clienti complessa su tutti i canali"
+     ]
+    },
+    {
+     "h": "Perché conta",
+     "t": "Sono agenti già pronti per un ruolo preciso: il cliente non parte da zero."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    },
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    }
+   ]
+  },
+  {
+   "id": "piper",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Piper: che lavoro fa e da dove arriva?",
+   "nome": "Piper",
+   "alias": [
+    "Qualified"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "L'agente per i lead in entrata: parla con chi arriva dal sito o scrive, lo qualifica e lo trasforma in pipeline per vendite e marketing B2B."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Arriva da Qualified, acquisita da Salesforce (annuncio a dicembre 2025, chiusura il 1° aprile 2026)",
+      "Asana: conversazioni moltiplicate per 4; attivazione in 45 giorni in media",
+      "Disponibile da settembre 2026"
+     ]
+    },
+    {
+     "h": "Per un BDR",
+     "t": "Si prende il primo contatto e la qualifica di base: alla persona arrivano conversazioni già calde."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    },
+    {
+     "t": "Salesforce · accordo per acquisire Qualified",
+     "u": "https://salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-qualified"
+    }
+   ]
+  },
+  {
+   "id": "hunter",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Hunter: perché interessa a chi fa il BDR?",
+   "nome": "Hunter",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "È l'agente di vendita outbound: lavora la pipeline dalla ricerca dei prospect fino all'outreach, insieme ai venditori, per settimane o mesi."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Primo agente sul nuovo motore «long-horizon», pensato per obiettivi che durano mesi",
+      "In pilota, disponibilità generale prevista a novembre 2026",
+      "Perk: Hunter costruisce il 60% della sua pipeline"
+     ]
+    },
+    {
+     "h": "Come parlarne",
+     "t": "Fa ricerca e primi contatti su larga scala; la persona si concentra su qualifica vera e relazione."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    },
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Fin: cos'era prima e perché Salesforce l'ha comprata?",
+   "nome": "Fin",
+   "alias": [
+    "Intercom"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Fin è l'agente AI per il servizio clienti dell'azienda prima nota come Intercom. Salesforce ha firmato l'accordo a giugno 2026 e completato l'acquisizione a settembre 2026."
+    },
+    {
+     "h": "Numeri",
+     "l": [
+      "Oltre 30.000 clienti nel mondo",
+      "Tasso medio di risoluzione: 76%",
+      "Anthropic: Fin risolve da solo il 79% delle conversazioni"
+     ]
+    },
+    {
+     "h": "Come si posiziona",
+     "t": "Lavora anche con gli help desk che il cliente usa già, accanto ad Agentforce."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · acquisizione di Fin completata",
+     "u": "https://www.salesforce.com/news/press-releases/2026/09/12/salesforce-completes-acquisition-of-fin/"
+    },
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    }
+   ]
+  },
+  {
+   "id": "novita-df26",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Dreamforce 2026: quattro novità tecniche da saper nominare",
+   "nome": "Koa",
+   "alias": [
+    "Superagent",
+    "Agent Fabric",
+    "long-horizon"
+   ],
+   "retro": [
+    {
+     "h": "Novità",
+     "l": [
+      "Koa: il primo modello di ragionamento di Salesforce pensato per il CRM, basato su NVIDIA Nemotron (in pilota)",
+      "Agenti long-horizon: inseguono obiettivi di giorni o mesi, con memoria e piani che si adattano",
+      "Superagent: un unico punto d'ingresso che coordina più agenti, anche di AWS, Azure e Google",
+      "Agent Fabric: pannello per gestire e governare agenti costruiti ovunque"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    },
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    }
+   ]
+  },
+  {
+   "id": "voice",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agentforce Voice: cosa fa e cosa cambia per l'Italia?",
+   "nome": "Agentforce Voice",
+   "alias": [
+    "Field Voice"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Agenti che parlano al telefono in modo naturale, al posto dei vecchi menu «premi 1, premi 2»."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Funziona con partner di contact center come Amazon Connect, Five9, NiCE e Vonage",
+      "Da settembre 2026 parla anche italiano (disponibilità generale)",
+      "Field Voice: riassunti e note a voce per chi lavora sul campo, nell'app mobile"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    }
+   ]
+  },
+  {
+   "id": "prezzi",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "Agentforce: quali modelli di prezzo esistono?",
+   "nome": "Flex Credits",
+   "alias": [
+    "Salesforce Foundations",
+    "Max Edition"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Tre logiche: gratis per iniziare, a consumo o per utente. Prezzi di listino in dollari, pagina aggiornata a ottobre 2026: possono cambiare."
+    },
+    {
+     "h": "Modelli",
+     "l": [
+      "Salesforce Foundations: 0 $, per provare Builder, Coworker e altri strumenti",
+      "Flex Credits: 500 $ ogni 100.000 crediti; un'azione dell'agente costa 20 crediti, cioè 0,10 $",
+      "A conversazione: 2 $",
+      "Per utente: add-on Agentforce 125 $ al mese (Sales, Service, Field Service), 150 $ per i settori",
+      "Max Edition: da 550 $ per utente al mese, con add-on e crediti inclusi"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · prezzi Agentforce",
+     "u": "https://www.salesforce.com/agentforce/pricing/"
+    },
+    {
+     "t": "Salesforce · Flex Credits, mag 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news/"
+    }
+   ]
+  },
+  {
+   "id": "platform",
+   "cat": "ai",
+   "tag": "",
+   "fronte": "La Platform: cosa c'è sotto le app?",
+   "nome": "Platform",
+   "alias": [
+    "AgentExchange",
+    "Heroku"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "La base comune su cui girano app e agenti: stessi dati, stessa sicurezza, strumenti per personalizzare senza ripartire da zero."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Strumenti low-code per automatizzare processi e creare app",
+      "Heroku per logica personalizzata e app su misura",
+      "AgentExchange: il marketplace per trovare e installare agenti e app dei partner"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "sales",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Sales (Sales Cloud, oggi Agentforce Sales): cosa copre?",
+   "nome": "Sales Cloud",
+   "alias": [
+    "Agentforce Sales"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Il CRM di vendita: lead, account, opportunità, pipeline e previsioni, con agenti che aiutano a fare prospecting, prevedere e chiudere."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Gestione di lead e opportunità con tutta la storia del cliente",
+      "Forecast per sapere quanto si chiuderà",
+      "Agenti per prospecting e qualifica: Piper in entrata, Hunter in uscita"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Siemens: circa 18.000 venditori lavorano in Sales Cloud."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · caso Siemens",
+     "u": "https://www.salesforce.com/customer-stories/siemens/agentic-sales-leads"
+    }
+   ]
+  },
+  {
+   "id": "service",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Service (Service Cloud, oggi Agentforce Service): cosa copre?",
+   "nome": "Service Cloud",
+   "alias": [
+    "Agentforce Service"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "L'assistenza clienti su tutti i canali: casi, contact center, base di conoscenza, con agenti che risolvono le richieste semplici e aiutano gli operatori in quelle complesse."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Vista completa del cliente per l'operatore",
+      "Agenti attivi 24 ore su 24 che passano all'operatore con il contesto",
+      "Assistenti che riassumono i casi e preparano le risposte"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "L'Oréal: casi gestiti fino al 64% più velocemente."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · caso L'Oréal",
+     "u": "https://www.salesforce.com/customer-stories/loreal/agentic-service-advisor-assistance"
+    },
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    }
+   ]
+  },
+  {
+   "id": "marketing",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Marketing (Marketing Cloud, oggi Agentforce Marketing): cosa copre?",
+   "nome": "Marketing Cloud",
+   "alias": [
+    "Agentforce Marketing",
+    "Account Engagement"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Campagne, segmentazione e percorsi personalizzati, con agenti che costruiscono le campagne e reagiscono ai segnali d'interesse."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Segmenti e messaggi automatici basati sui dati di Data 360",
+      "Account Engagement: la versione per il marketing B2B (ex Pardot)",
+      "Con Qualified e Piper rafforza la generazione di pipeline"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Euronics usa Agentforce Marketing per segmentazione e campagne automatiche."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · caso Euronics Italia",
+     "u": "https://www.salesforce.com/customer-stories/euronics-italia/"
+    },
+    {
+     "t": "Salesforce · accordo per acquisire Qualified",
+     "u": "https://salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-qualified"
+    }
+   ]
+  },
+  {
+   "id": "commerce",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Commerce (Commerce Cloud, oggi Agentforce Commerce): cosa copre?",
+   "nome": "Commerce Cloud",
+   "alias": [
+    "Agentforce Commerce"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Vendita online B2C e B2B, cassa in negozio e gestione degli ordini su un'unica piattaforma."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Agenti che guidano chi compra nella scelta, come Carter",
+      "Collega negozio fisico e online: ritiro in negozio, ordini unificati"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Euronics ha sostituito la vecchia piattaforma Oracle ATG con Agentforce Commerce."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · caso Euronics Italia",
+     "u": "https://www.salesforce.com/customer-stories/euronics-italia/"
+    },
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    }
+   ]
+  },
+  {
+   "id": "revenue",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Revenue Management: cosa gestisce?",
+   "nome": "Revenue Management",
+   "alias": [
+    "Revenue Cloud",
+    "CPQ"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Il ciclo dal preventivo all'incasso: prezzi, preventivi, contratti e fatturazione."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Evita preventivi fatti a mano e sconti fuori controllo",
+      "Utile con listini complessi o rinnovi in abbonamento"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Eurotherm usa CPQ, i preventivi di Salesforce, insieme a Sales e Service Cloud."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce Italia · storie dei clienti",
+     "u": "https://www.salesforce.com/it/agentforce/customer-stories/"
+    }
+   ]
+  },
+  {
+   "id": "field-service",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Field Service and Operations: per chi è?",
+   "nome": "Field Service",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Per chi ha tecnici o personale sul campo: pianificazione degli interventi, app mobile, storico del cliente sempre a portata di mano."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Field Voice (settembre 2026): riassunto prima della visita e note dopo, a voce, nell'app mobile",
+      "Nel manifatturiero aiuta anche con garanzie e assistenza post-vendita"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Fisher & Paykel usa Agentforce per far arrivare i tecnici già pronti alla riparazione."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    },
+    {
+     "t": "Salesforce · storie Agentforce",
+     "u": "https://www.salesforce.com/agentforce/customer-stories/"
+    }
+   ]
+  },
+  {
+   "id": "experience-cloud",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Experience Cloud: a cosa serve?",
+   "nome": "Experience Cloud",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Per creare portali e siti per clienti, partner o rivenditori, collegati al CRM."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Self-service: il cliente apre richieste o trova risposte da solo",
+      "Portali per chi vende tramite partner e rivenditori"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Italgas raccoglie i reclami con Experience Cloud e li gestisce con Service Cloud; la soluzione è usata da circa 2.500 dipendenti."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Italgas",
+     "u": "https://www.salesforce.com/it/customer-stories/italgas/"
+    }
+   ]
+  },
+  {
+   "id": "it-hr",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "IT & HR Service: cosa porta?",
+   "nome": "IT & HR Service",
+   "alias": [
+    "Paige"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Assistenza interna ai dipendenti per richieste IT e HR, sulla stessa piattaforma agentica usata per i clienti."
+    },
+    {
+     "h": "Esempio",
+     "t": "Autism Queensland: l'agente Paige risolve il 70% delle richieste amministrative."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    }
+   ]
+  },
+  {
+   "id": "small-business",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Starter Suite e Pro Suite: per chi sono e quanto costano?",
+   "nome": "Pro Suite",
+   "alias": [
+    "Starter Suite"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Le edizioni per piccole imprese: CRM pronto all'uso per partire in fretta."
+    },
+    {
+     "h": "Edizioni",
+     "l": [
+      "Starter Suite: 25 € per utente al mese, partenza veloce",
+      "Pro Suite: 100 € per utente al mese, aggiunge preventivi, previsioni e più personalizzazione (contratto annuale)"
+     ]
+    },
+    {
+     "h": "Esempio",
+     "t": "Ercopac è partita con Pro Suite ed è poi passata alle versioni complete di Agentforce Sales e Service."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · prezzi Small Business",
+     "u": "https://www.salesforce.com/small-business/pricing/"
+    },
+    {
+     "t": "Salesforce · caso Ercopac",
+     "u": "https://www.salesforce.com/it/customer-stories/ercopac-grows-with-salesforce/"
+    }
+   ]
+  },
+  {
+   "id": "net-zero",
+   "cat": "cloud",
+   "tag": "",
+   "fronte": "Net Zero Cloud: a cosa serve?",
+   "nome": "Net Zero Cloud",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Raccoglie i dati di sostenibilità e aiuta a raggiungere gli obiettivi di emissioni nette zero, con l'AI."
+    },
+    {
+     "h": "Quando citarlo",
+     "t": "Aziende con obiettivi di riduzione delle emissioni o obblighi di rendicontazione di sostenibilità."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    }
+   ]
+  },
+  {
+   "id": "industries",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Industries: cosa sono le soluzioni di settore?",
+   "nome": "Industries",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Oltre 16 soluzioni verticali: app e modelli dati già pensati per un settore, così il cliente non parte da zero."
+    },
+    {
+     "h": "Alcuni settori",
+     "t": "Life Sciences, Healthcare, Financial Services, Manufacturing, Consumer Goods, Retail, Automotive, Communications, Energy & Utilities, Public Sector, Media, Nonprofit."
+    },
+    {
+     "h": "Prezzo",
+     "t": "Add-on Agentforce per i settori: 150 $ per utente al mese, di listino."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Industries",
+     "u": "https://www.salesforce.com/industries/"
+    },
+    {
+     "t": "Salesforce · prezzi Agentforce",
+     "u": "https://www.salesforce.com/agentforce/pricing/"
+    }
+   ]
+  },
+  {
+   "id": "life-sciences",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Life Sciences Cloud: per chi è e cosa fa il modulo Customer Engagement?",
+   "nome": "Life Sciences Cloud",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Il CRM per farmaceutica e medtech. Il modulo Customer Engagement, disponibile da ottobre 2025, serve agli informatori per gestire il rapporto con medici e operatori sanitari."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "App per iPad, funziona anche offline: riassunto dell'account, storico, andamento delle prescrizioni",
+      "Note dettate a voce e registrazione automatica delle visite",
+      "Se salta un appuntamento, l'agente propone medici vicini ad alto potenziale",
+      "Tracciabilità e consensi elettronici, gestione dei contenuti regolati prevista per fine 2026; supporta GDPR e GxP"
+     ]
+    },
+    {
+     "h": "Clienti",
+     "t": "Oltre 70 organizzazioni, tra cui Pfizer, Takeda, Boehringer Ingelheim e le italiane Menarini e Fidia."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    },
+    {
+     "t": "Salesforce · chi ha scelto Life Sciences Cloud",
+     "u": "https://www.salesforce.com/news/stories/industry-leaders-choose-life-sciences-cloud/"
+    }
+   ]
+  },
+  {
+   "id": "consumer-goods",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Consumer Goods: cosa offre a chi vende tramite negozi e distributori?",
+   "nome": "Consumer Goods",
+   "alias": [
+    "Consumer Goods Cloud",
+    "Agentforce Consumer Goods"
+   ],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Un hub commerciale che collega distributori, buyer della distribuzione, forza vendita sul campo e consumatori."
+    },
+    {
+     "h": "Moduli",
+     "l": [
+      "Retail Execution: ordini da mobile, controlli nei punti vendita, playbook per account",
+      "Visit Assistant: l'agente pianifica le visite e prepara riassunti e suggerimenti",
+      "Trade Promotion Management: pianificazione e controllo delle promozioni",
+      "Distributor Management: ordini, ricevimento merce, inventari"
+     ]
+    },
+    {
+     "h": "Clienti",
+     "t": "PepsiCo, L'Oréal, Molson Coors, YETI."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Consumer Goods",
+     "u": "https://www.salesforce.com/consumer-goods/"
+    }
+   ]
+  },
+  {
+   "id": "financial-services",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Financial Services Cloud: per chi è e che esempi ci sono?",
+   "nome": "Financial Services Cloud",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Il CRM per banche, assicurazioni e gestione patrimoniale, con un modello dati che conosce clienti, portafogli e relazioni."
+    },
+    {
+     "h": "Esempi nel settore finanziario",
+     "l": [
+      "Moneyfarm usa Financial Services Cloud e prevede di collegarlo all'agente per rispondere su portafoglio e versamenti",
+      "UniCredit ha raccontato a Milano, a giugno 2026, il percorso verso una «banca agentica»",
+      "Fulton Bank usa Agentforce Coworker per circa 3.000 utenti"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Moneyfarm",
+     "u": "https://www.salesforce.com/it/customer-stories/moneyfarm/"
+    },
+    {
+     "t": "Salesforce Italia · World Tour Milano, 11 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/11/da-sperimentazione-a-trasformazione-salesforce-riunisce-a-milano-le-imprese-che-hanno-scelto-lai-agentica/"
+    },
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    }
+   ]
+  },
+  {
+   "id": "healthcare",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Health Cloud: a cosa serve?",
+   "nome": "Health Cloud",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Il CRM per strutture sanitarie: dati dei pazienti, percorsi di cura e comunicazioni in un'unica vista."
+    },
+    {
+     "h": "Esempio",
+     "t": "Vista Vision, chirurgia refrattiva laser in Italia, usa Health Cloud e Marketing Cloud per gestire dati dei pazienti e percorsi clinici."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce Italia · storie dei clienti",
+     "u": "https://www.salesforce.com/it/agentforce/customer-stories/"
+    }
+   ]
+  },
+  {
+   "id": "manufacturing",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Manufacturing Cloud: cosa offre ai produttori?",
+   "nome": "Manufacturing Cloud",
+   "alias": [],
+   "retro": [
+    {
+     "h": "In breve",
+     "t": "Modello dati e app per il manifatturiero che uniscono vendite, assistenza e canale (rivenditori e partner)."
+    },
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Accordi commerciali e previsioni della domanda",
+      "Assistenza e garanzie: un produttore globale ha automatizzato il 60% delle richieste di garanzia",
+      "Salesforce dichiara 20.000 aziende manifatturiere clienti"
+     ]
+    },
+    {
+     "h": "Clienti",
+     "t": "Endress+Hauser, GE Appliances, Fisher & Paykel."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Manufacturing",
+     "u": "https://www.salesforce.com/manufacturing/"
+    }
+   ]
+  },
+  {
+   "id": "altri-settori",
+   "cat": "settori",
+   "tag": "",
+   "fronte": "Telco, utility e pubblica amministrazione: che esempi italiani ci sono?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Esempi",
+     "l": [
+      "Communications: Telepass usa Agentforce Communications",
+      "Energy & Utilities: Italgas con Service ed Experience Cloud, A2A Unareti per le attività sul campo, Enel tra i clienti citati",
+      "Public Sector: INPS tra i clienti citati; il Comune di Genova usa Salesforce come CRM verso i cittadini"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    },
+    {
+     "t": "Salesforce · caso Italgas",
+     "u": "https://www.salesforce.com/it/customer-stories/italgas/"
+    },
+    {
+     "t": "Salesforce Italia · storie dei clienti",
+     "u": "https://www.salesforce.com/it/agentforce/customer-stories/"
+    },
+    {
+     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
+    }
+   ]
+  },
+  {
+   "id": "siemens",
+   "cat": "estero",
+   "tag": "Industria · Germania",
+   "fronte": "Siemens: come qualifica i lead in entrata con Agentforce?",
+   "nome": "Siemens",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Migliaia di lead non qualificati al mese, da download e fiere. I venditori, spesso ingegneri, dovevano verificare budget, autorità, bisogno e tempi (BANT) uno per uno."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Un agente scrive entro pochi minuti e fa fino a due follow-up; un secondo agente chatta con il prospect, chiede il BANT e salva le risposte in Sales Cloud. Con almeno due risposte positive il lead va a un venditore con un riassunto."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "Risposta ai lead: da giorni a minuti",
+      "Circa 2.500 lead al mese coperti al 100%, in 132 paesi",
+      "80% delle interazioni valutate buone o molto buone",
+      "Agente per oltre 14.500 partner costruito in 6 settimane"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "È il caso più vicino al lavoro del BDR: qualifica strutturata, con regole chiare."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Siemens",
+     "u": "https://www.salesforce.com/customer-stories/siemens/agentic-sales-leads"
+    }
+   ]
+  },
+  {
+   "id": "saastr",
+   "cat": "estero",
+   "tag": "Media ed eventi · USA",
+   "fronte": "SaaStr: come ha trasformato lead dimenticati in fatturato?",
+   "nome": "SaaStr",
+   "alias": [
+    "Hexi"
+   ],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Circa 1.000 prospect interessati (sponsorizzazioni, biglietti) mai ricontattati: i commerciali seguivano solo i contratti più grandi. L'azienda ha tre dipendenti."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Un agente di vendita, Hexi, scrive email personalizzate con storico CRM e comportamento sul sito, fa follow-up in base al fuso orario e passa i lead di valore alle persone. Limiti chiari: niente appuntamenti, niente prezzi sotto una soglia minima, niente promesse di interventi sul palco."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "72% di apertura, oltre 10% di risposta",
+      "2,7 milioni di dollari di fatturato in più e 3,5 milioni di pipeline",
+      "Online in tre settimane"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Dimostra che il database «dormiente» è pipeline nascosta."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso SaaStr",
+     "u": "https://www.salesforce.com/customer-stories/saastr-ai/agentic-outreach"
+    }
+   ]
+  },
+  {
+   "id": "takeda",
+   "cat": "estero",
+   "tag": "Farmaceutico · Giappone",
+   "fronte": "Takeda: come usa Agentforce per le domande dei medici?",
+   "nome": "Takeda",
+   "alias": [
+    "SEIMEI",
+    "AIMI"
+   ],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Domande complesse dei medici su farmaci e controindicazioni: il team di informazione medica cercava le fonti e scriveva le risposte a mano."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Due agenti: uno sintetizza letteratura clinica e documenti interni, l'altro propone risposte con le fonti. Un professionista medico approva sempre prima dell'invio. Usa Life Sciences Cloud, Data 360 e MuleSoft."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "Oltre 25.000 richieste di medici gestite con Agentforce",
+      "Oltre 3.100 documenti medici regolati caricati",
+      "8.000 richieste non mediche gestite (ordini, prezzi, programmi per i pazienti)"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Per il farmaceutico: AI con controllo umano e fonti verificabili."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Takeda",
+     "u": "https://www.salesforce.com/customer-stories/takeda"
+    }
+   ]
+  },
+  {
+   "id": "loreal",
+   "cat": "estero",
+   "tag": "Beauty · Francia",
+   "fronte": "L'Oréal: come velocizza il servizio clienti?",
+   "nome": "L'Oréal",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Attività ripetitive rallentavano gli operatori: un codice sconto richiedeva circa 10 minuti e 15 schermate."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Agentforce dentro Service Cloud riassume i casi, prepara risposte nel tono del brand e genera i codici promozionali da una richiesta semplice."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "Casi gestiti il 64% più velocemente (da circa 7 a 2,5 minuti) quando la bozza va bene così",
+      "Codici promozionali il 90% più veloci",
+      "Adozione al 100%: oltre 300 operatori lo usano ogni giorno, su 25 brand"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Mostra l'AI che aiuta le persone, non solo il bot che risponde ai clienti."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso L'Oréal",
+     "u": "https://www.salesforce.com/customer-stories/loreal/agentic-service-advisor-assistance"
+    }
+   ]
+  },
+  {
+   "id": "fifa",
+   "cat": "estero",
+   "tag": "Sport · Internazionale",
+   "fronte": "FIFA: cosa ha fatto con Agentforce per i Mondiali 2026?",
+   "nome": "FIFA",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Soluzione",
+     "t": "Due agenti hanno seguito i giornalisti dalla prima domanda fino all'accredito; Slack ha coordinato i volontari."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "85% delle domande frequenti risolte in autonomia nei primi 45 giorni",
+      "Torneo da 104 partite, 16 città in 3 paesi, 48 squadre"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Caso che tutti conoscono: grandi volumi concentrati in poco tempo."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso FIFA",
+     "u": "https://www.salesforce.com/customer-stories/fifa"
+    }
+   ]
+  },
+  {
+   "id": "reddit",
+   "cat": "estero",
+   "tag": "Tecnologia · USA",
+   "fronte": "Reddit: che risultati ha ottenuto nell'assistenza?",
+   "nome": "Reddit",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risultati",
+     "l": [
+      "46% dei casi di supporto risolti senza operatore",
+      "Tempo medio di risposta da 8,9 a 1,4 minuti"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Numeri semplici e forti sul tempo di risposta."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "opentable",
+   "cat": "estero",
+   "tag": "Ristorazione · USA",
+   "fronte": "OpenTable: quanto risolve da solo l'agente?",
+   "nome": "OpenTable",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risultato",
+     "t": "Il 70% delle richieste di clienti e ristoranti risolte in autonomia."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Due tipi di utenti, chi prenota e chi gestisce il ristorante, serviti dallo stesso agente."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "engine",
+   "cat": "estero",
+   "tag": "Viaggi d'affari · USA",
+   "fronte": "Engine: quanto ha risparmiato?",
+   "nome": "Engine",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risultati",
+     "l": [
+      "Tempo di gestione dei casi ridotto del 15%",
+      "Oltre 2 milioni di dollari risparmiati all'anno",
+      "Gestisce oltre 800.000 richieste di clienti all'anno e usa anche Slackforce"
+     ]
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    },
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    }
+   ]
+  },
+  {
+   "id": "1800accountant",
+   "cat": "estero",
+   "tag": "Servizi fiscali · USA",
+   "fronte": "1-800Accountant: cosa è successo nella settimana delle tasse?",
+   "nome": "1-800Accountant",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risultato",
+     "t": "Il 90% dei casi risolti senza operatore proprio nella settimana di picco delle dichiarazioni."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Per chi ha picchi stagionali: l'agente assorbe il picco senza personale temporaneo."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "adecco",
+   "cat": "estero",
+   "tag": "Risorse umane · Svizzera",
+   "fronte": "Adecco: perché l'agente conta anche fuori orario?",
+   "nome": "Adecco",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risultato",
+     "t": "L'agente ha gestito il 51% delle conversazioni con i candidati fuori dall'orario di lavoro."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Clienti e candidati scrivono la sera e nel weekend: l'agente c'è sempre."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "customer-zero",
+   "cat": "estero",
+   "tag": "Salesforce · USA",
+   "fronte": "Customer Zero: come usa Salesforce Agentforce su se stessa?",
+   "nome": "Customer Zero",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Soluzione",
+     "t": "Agentforce sul sito di assistenza help.salesforce.com, con i dati di Data 360 per risposte personalizzate. Partito con un pilota di 200 utenti per quattro settimane."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "Oltre 5 milioni di conversazioni, più del 63% risolte subito (dato 2025)",
+      "Attivo 24 ore su 24 in sette lingue",
+      "Il sito riceve oltre 60 milioni di visite l'anno"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Salesforce usa per prima ciò che vende, e mostra come partire in piccolo con un pilota."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Customer Zero",
+     "u": "https://www.salesforce.com/it/agentforce/use-cases/customer-zero/"
+    }
+   ]
+  },
+  {
+   "id": "fulton",
+   "cat": "estero",
+   "tag": "Banca · USA",
+   "fronte": "Fulton Bank: quanto è stata veloce l'adozione di Agentforce Coworker?",
+   "nome": "Fulton Bank",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risultato",
+     "t": "Da zero a oltre 20 casi d'uso in produzione in poche settimane, per circa 3.000 utenti."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Settore regolato, adozione rapida perché Coworker usa i permessi già esistenti."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    }
+   ]
+  },
+  {
+   "id": "telepass",
+   "cat": "italia",
+   "tag": "Mobilità · Italia",
+   "fronte": "Telepass: cosa ha fatto con Agentforce e con quali risultati?",
+   "nome": "Telepass",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Circa 2 milioni di richieste telefoniche e 900.000 chat l'anno, dati sparsi in 62 database esterni; il vecchio chatbot passava agli operatori oltre metà delle richieste e il servizio era attivo solo dalle 8 alle 19."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Un agente in chat per le domande frequenti (fatture, contratti, targhe) che passa all'operatore con il contesto; dati unificati con Data 360 e MuleSoft."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "87% delle richieste risolte in autonomia",
+      "40.000 conversazioni a settimana",
+      "Gestione delle chiamate più veloce del 50%",
+      "Online in sei settimane, ritorno dell'investimento entro 10",
+      "Ingresso di nuovi partner: da circa 3 mesi a 1-2 settimane"
+     ]
+    },
+    {
+     "h": "Attenzione",
+     "t": "Nel comunicato di giugno 2026 Salesforce parla di 84% di richieste automatizzate: i due numeri vengono da fonti diverse."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Il caso italiano più forte: grandi numeri e tempi rapidi."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    },
+    {
+     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
+    }
+   ]
+  },
+  {
+   "id": "euronics",
+   "cat": "italia",
+   "tag": "Retail · Italia",
+   "fronte": "Euronics Italia: cosa fa l'agente «Ronics»?",
+   "nome": "Euronics",
+   "alias": [
+    "Ronics"
+   ],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Portare online la competenza dei commessi: i clienti si aspettano un e-commerce comodo come quello dei grandi player."
+    },
+    {
+     "h": "Soluzione",
+     "t": "L'agente Ronics aiuta a scegliere e confrontare i grandi elettrodomestici e li mette nel carrello, usando 26.000 prodotti in Data 360. In più Agentforce Commerce, Marketing e Service Cloud."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "Conversione +53% grazie all'agente",
+      "7% di clic sui prodotti suggeriti",
+      "Vendite online +13%",
+      "In produzione in 15 settimane"
+     ]
+    },
+    {
+     "h": "Attenzione",
+     "t": "La descrizione breve della pagina riporta numeri più bassi (+4% conversione, +3% vendite): questi sono quelli del testo dell'articolo."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Retail con negozi: unisce consiglio esperto, online e ritiro in negozio."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Euronics Italia",
+     "u": "https://www.salesforce.com/customer-stories/euronics-italia/"
+    }
+   ]
+  },
+  {
+   "id": "moneyfarm",
+   "cat": "italia",
+   "tag": "Fintech · Italia e UK",
+   "fronte": "Moneyfarm: come usa Agentforce nell'assistenza agli investitori?",
+   "nome": "Moneyfarm",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Problema",
+     "t": "Molti investitori da guidare e tante interazioni; il vecchio chatbot seguiva menu predefiniti."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Agente in chat che risponde alle domande frequenti e passa a un consulente con il riassunto. Creato in pochi giorni senza codice. Prossimi passi: voce e dati del singolo cliente."
+    },
+    {
+     "h": "Risultati",
+     "l": [
+      "30% delle chat gestite da Agentforce nei primi mesi",
+      "25% risolte senza consulente",
+      "Circa 3.000 conversazioni al mese, 25 ore al mese risparmiate"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Finanza regolata e approccio graduale: si parte dalle FAQ e poi si allarga."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Moneyfarm",
+     "u": "https://www.salesforce.com/it/customer-stories/moneyfarm/"
+    }
+   ]
+  },
+  {
+   "id": "trenitalia",
+   "cat": "italia",
+   "tag": "Trasporti · Italia",
+   "fronte": "Trenitalia: per cosa usa Agentforce?",
+   "nome": "Trenitalia",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Soluzione",
+     "t": "Agenti Agentforce a supporto di vendite e assistenza; in sperimentazione anche il servizio clienti via WhatsApp."
+    },
+    {
+     "h": "Contesto",
+     "t": "Oltre 500 milioni di passeggeri l'anno: è la dimensione dell'azienda, non un risultato del progetto."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Nome noto a tutti in Italia, presentato all'Agentforce World Tour di Milano a giugno 2026."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce Italia · World Tour Milano, 11 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/11/da-sperimentazione-a-trasformazione-salesforce-riunisce-a-milano-le-imprese-che-hanno-scelto-lai-agentica/"
+    },
+    {
+     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
+    }
+   ]
+  },
+  {
+   "id": "italgas",
+   "cat": "italia",
+   "tag": "Utility · Italia",
+   "fronte": "Italgas: cosa ha digitalizzato con Salesforce?",
+   "nome": "Italgas",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Soluzione",
+     "l": [
+      "Portale per le società di vendita al posto di processi manuali e PEC",
+      "Reclami raccolti con Experience Cloud e gestiti con Service Cloud, da circa 2.500 dipendenti",
+      "Contact center del pronto intervento migrato in 4 mesi, con SMS di aggiornamento al cliente"
+     ]
+    },
+    {
+     "h": "Risultato",
+     "t": "Circa 4.000 chiamate al giorno gestite con la nuova piattaforma."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Utility grande e regolata: esempio di servizio clienti e portali, prima dell'arrivo degli agenti."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Italgas",
+     "u": "https://www.salesforce.com/it/customer-stories/italgas/"
+    }
+   ]
+  },
+  {
+   "id": "ercopac",
+   "cat": "italia",
+   "tag": "Manifattura · Italia",
+   "fronte": "Ercopac: perché è un buon esempio di azienda media?",
+   "nome": "Ercopac",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Chi è",
+     "t": "Azienda di Scandiano (Reggio Emilia) nata a fine 2022, produce pallettizzatori e avvolgitrici; 55 dipendenti e filiali in Francia, Spagna, Messico e Tunisia."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Partita con Pro Suite, poi passata ad Agentforce Sales per 14 commerciali e ad Agentforce Service per 3 persone in assistenza; Slack in arrivo."
+    },
+    {
+     "h": "Risultati",
+     "t": "Conversione dei lead più alta e tempi di risoluzione dei ticket più bassi, senza numeri pubblicati."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Mostra il percorso di crescita: si parte piccoli e si sale di edizione."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Ercopac",
+     "u": "https://www.salesforce.com/it/customer-stories/ercopac-grows-with-salesforce/"
+    }
+   ]
+  },
+  {
+   "id": "pharma-italia",
+   "cat": "italia",
+   "tag": "Farmaceutico · Italia",
+   "fronte": "Menarini e Fidia: cosa fanno con Life Sciences Cloud?",
+   "nome": "Menarini",
+   "alias": [
+    "Fidia"
+   ],
+   "retro": [
+    {
+     "h": "Cosa fanno",
+     "l": [
+      "Menarini: personalizzazione con l'AI e rapporto omnicanale con i medici",
+      "Fidia Farmaceutici: unisce rapporto con i medici e ciclo preventivo-ordine su una sola piattaforma, con Data Cloud (progetto in corso); tra i primi ad adottare Customer Engagement"
+     ]
+    },
+    {
+     "h": "Contesto",
+     "t": "Fanno parte delle oltre 70 aziende che hanno scelto Life Sciences Cloud, con Pfizer, Takeda e Boehringer Ingelheim."
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "Esempi italiani per qualsiasi prospect farmaceutico."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · chi ha scelto Life Sciences Cloud",
+     "u": "https://www.salesforce.com/news/stories/industry-leaders-choose-life-sciences-cloud/"
+    },
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    }
+   ]
+  },
+  {
+   "id": "altri-italia",
+   "cat": "italia",
+   "tag": "Italia",
+   "fronte": "Altri clienti italiani da saper nominare",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Grandi nomi",
+     "t": "Ferrari, Enel, UniCredit, INPS, Trenitalia, Telepass: citati da Salesforce a giugno 2026."
+    },
+    {
+     "h": "Con un caso pubblicato",
+     "l": [
+      "Amplifon: progetto «Symphony» per uniformare vendite e assistenza",
+      "Vista Vision: Health Cloud e Marketing Cloud per pazienti e percorsi clinici",
+      "Eurotherm: Sales, Service, Account Engagement e CPQ",
+      "Billoo: circa mezzo milione di utenti con processi automatizzati",
+      "Furla: dal multicanale all'omnicanale, con vista completa del cliente"
+     ]
+    },
+    {
+     "h": "Al World Tour di Milano 2026",
+     "t": "Boggi Milano, Safilo, Euronics e Leapmotor con casi d'uso dal vivo."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
+    },
+    {
+     "t": "Salesforce Italia · storie dei clienti",
+     "u": "https://www.salesforce.com/it/agentforce/customer-stories/"
+    },
+    {
+     "t": "Salesforce Italia · World Tour Milano, 11 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/11/da-sperimentazione-a-trasformazione-salesforce-riunisce-a-milano-le-imprese-che-hanno-scelto-lai-agentica/"
+    }
+   ]
+  },
+  {
+   "id": "italia-contesto",
+   "cat": "italia",
+   "tag": "Contesto · Italia",
+   "fronte": "Salesforce in Italia: cosa è stato annunciato a giugno 2026?",
+   "nome": "Salesforce",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Punti chiave",
+     "l": [
+      "Investimento da 1 miliardo di dollari in cinque anni, annunciato da Marc Benioff il 16 giugno 2026",
+      "Nuova sede a Milano (Palazzo Missori) e nuove assunzioni in data science, AI agentica e ingegneria",
+      "In Italia dal 2003, con oltre 600 posti di lavoro creati",
+      "Agentforce World Tour Milano 2026: circa 6.000 partecipanti"
+     ]
+    },
+    {
+     "h": "Perché citarlo",
+     "t": "L'Italia è un mercato su cui Salesforce punta: utile quando chiedono «perché Salesforce»."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
+    },
+    {
+     "t": "Salesforce Italia · World Tour Milano, 11 giu 2026",
+     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/11/da-sperimentazione-a-trasformazione-salesforce-riunisce-a-milano-le-imprese-che-hanno-scelto-lai-agentica/"
+    }
+   ]
+  },
+  {
+   "id": "sit-lead",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Riceviamo tanti lead, ma i commerciali non riescono a richiamarli tutti.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Agentforce Sales con un agente per i lead in entrata, come Piper, che risponde subito, qualifica e passa ai venditori solo i lead pronti."
+    },
+    {
+     "h": "Perché",
+     "t": "Risposta immediata e qualifica coerente: i venditori lavorano solo lead caldi."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "Siemens: risposta da giorni a minuti, 2.500 lead al mese coperti al 100%."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Siemens",
+     "u": "https://www.salesforce.com/customer-stories/siemens/agentic-sales-leads"
+    },
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    }
+   ]
+  },
+  {
+   "id": "sit-dormienti",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Abbiamo centinaia di contatti interessati che nessuno ha mai ricontattato.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Un agente di vendita per l'outreach personalizzato; per il lavoro outbound lungo c'è anche Hunter."
+    },
+    {
+     "h": "Perché",
+     "t": "Il database «dormiente» è pipeline già pagata: l'agente fa i follow-up che le persone non riescono a fare."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "SaaStr: 72% di apertura e 2,7 milioni di dollari chiusi."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso SaaStr",
+     "u": "https://www.salesforce.com/customer-stories/saastr-ai/agentic-outreach"
+    },
+    {
+     "t": "CMSWire · agenti «pronti al lavoro», set 2026",
+     "u": "https://www.cmswire.com/the-wire/salesforce-expands-agentforce-with-a-new-portfolio-of-ai-agents-built-for-high-value-work/"
+    }
+   ]
+  },
+  {
+   "id": "sit-service",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Il servizio clienti è sommerso da domande ripetitive e siamo aperti solo in orario d'ufficio.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Agentforce Service: un agente che risolve le richieste frequenti 24 ore su 24 e passa all'operatore con il contesto."
+    },
+    {
+     "h": "Perché",
+     "t": "Toglie volume agli operatori e copre sera e weekend."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "Telepass: 87% risolto in autonomia. Adecco: l'agente ha gestito il 51% delle conversazioni fuori orario."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    },
+    {
+     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+    }
+   ]
+  },
+  {
+   "id": "sit-dati",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«I nostri dati sono sparsi tra gestionale, e-commerce e mille Excel.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Data 360 per unificare i dati in un profilo unico, con MuleSoft e Informatica per collegare e ripulire le fonti."
+    },
+    {
+     "h": "Perché",
+     "t": "Senza dati unificati gli agenti rispondono in modo generico."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "Telepass partiva da dati sparsi in 62 database esterni."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce Ben · Data Cloud diventa Data 360",
+     "u": "https://www.salesforceben.com/salesforce-data-cloud-renamed-to-data-360-as-part-of-agentforce-360/"
+    },
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    },
+    {
+     "t": "Salesforce · acquisizione di Informatica completata",
+     "u": "https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/"
+    }
+   ]
+  },
+  {
+   "id": "sit-privacy",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Non mi fido a mettere i dati dei clienti in un'AI.» Come rispondi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risposta",
+     "t": "Trust Layer: zero data retention, dati sensibili mascherati, permessi rispettati, controllo dei contenuti. Con Hyperforce EU Operating Zone i dati restano in Europa."
+    },
+    {
+     "h": "Perché funziona",
+     "t": "Sposta il discorso dalla paura generica ai controlli concreti."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "Takeda: ogni risposta dell'agente viene approvata da un medico prima dell'invio."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Trusted AI e Trust Layer",
+     "u": "https://www.salesforce.com/artificial-intelligence/trusted-ai/"
+    },
+    {
+     "t": "Salesforce · Hyperforce EU Operating Zone",
+     "u": "https://www.salesforce.com/news/press-releases/2023/03/02/hyperforce-eu-operating-zone-news/"
+    },
+    {
+     "t": "Salesforce · caso Takeda",
+     "u": "https://www.salesforce.com/customer-stories/takeda"
+    }
+   ]
+  },
+  {
+   "id": "sit-ecommerce",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«L'e-commerce ha traffico ma converte poco: i clienti non sanno cosa scegliere.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Agentforce Commerce con un agente che consiglia e confronta i prodotti come farebbe un commesso esperto."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "Euronics: conversione +53% con l'agente Ronics."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Euronics Italia",
+     "u": "https://www.salesforce.com/customer-stories/euronics-italia/"
+    }
+   ]
+  },
+  {
+   "id": "sit-informatori",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«I nostri informatori scientifici perdono tempo a preparare le visite e a scrivere i report.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Life Sciences Cloud for Customer Engagement: riassunto dell'account, note dettate a voce, registrazione automatica delle visite, suggerimenti se un appuntamento salta."
+    },
+    {
+     "h": "Perché",
+     "t": "Più tempo con i medici e meno lavoro amministrativo; dati sulle visite affidabili per il management."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "Takeda, con 25.000 richieste dei medici gestite; in Italia Menarini e Fidia."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    },
+    {
+     "t": "Salesforce · caso Takeda",
+     "u": "https://www.salesforce.com/customer-stories/takeda"
+    },
+    {
+     "t": "Salesforce · chi ha scelto Life Sciences Cloud",
+     "u": "https://www.salesforce.com/news/stories/industry-leaders-choose-life-sciences-cloud/"
+    }
+   ]
+  },
+  {
+   "id": "sit-punti-vendita",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Visitiamo farmacie e negozi ma non sappiamo quali visite e promozioni funzionano.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Consumer Goods: Retail Execution e Visit Assistant per pianificare le visite e raccogliere dati nel punto vendita, Trade Promotion Management per le promozioni, Tableau per l'analisi."
+    },
+    {
+     "h": "Perché",
+     "t": "Collega l'attività sul campo ai risultati di vendita."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "PepsiCo e L'Oréal tra i clienti consumer goods."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Consumer Goods",
+     "u": "https://www.salesforce.com/consumer-goods/"
+    }
+   ]
+  },
+  {
+   "id": "sit-pmi",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Siamo una PMI con pochi commerciali e lavoriamo con Excel.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Starter Suite o Pro Suite per partire in fretta, poi crescere verso Agentforce Sales e Service."
+    },
+    {
+     "h": "Perché",
+     "t": "Costi contenuti all'inizio, senza dover cambiare piattaforma dopo."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "Ercopac: da Pro Suite alle versioni complete, con 14 commerciali."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · prezzi Small Business",
+     "u": "https://www.salesforce.com/small-business/pricing/"
+    },
+    {
+     "t": "Salesforce · caso Ercopac",
+     "u": "https://www.salesforce.com/it/customer-stories/ercopac-grows-with-salesforce/"
+    }
+   ]
+  },
+  {
+   "id": "sit-tecnici",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«I nostri tecnici arrivano dal cliente senza sapere cosa è successo prima.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Field Service and Operations con lo storico del cliente nell'app e Field Voice per riassunti e note a voce."
+    },
+    {
+     "h": "Caso da citare",
+     "t": "Fisher & Paykel: tecnici che arrivano già pronti alla riparazione."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
+    },
+    {
+     "t": "Salesforce · annunci Dreamforce 2026",
+     "u": "https://www.salesforce.com/blog/dreamforce-2026-announcements/"
+    },
+    {
+     "t": "Salesforce · storie Agentforce",
+     "u": "https://www.salesforce.com/agentforce/customer-stories/"
+    }
+   ]
+  },
+  {
+   "id": "sit-adozione",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«I commerciali non aggiornano mai il CRM: vivono su Slack e sulla mail.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Portare il CRM dove lavorano: Slackforce per aggiornare record e note da Slack, Agentforce Coworker in Salesforce, Claudeforce in Claude."
+    },
+    {
+     "h": "Perché",
+     "t": "Meno inserimento manuale, dati più completi."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "Coworker: 100.000 utenti attivati in 35 giorni; Fulton Bank con oltre 20 casi d'uso."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato AIforce, set 2026",
+     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
+    }
+   ]
+  },
+  {
+   "id": "sit-costo",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Quanto costa l'AI di Salesforce? Non voglio un progetto enorme.» Come rispondi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Risposta",
+     "t": "Si può partire gratis con Salesforce Foundations, poi pagare a consumo (Flex Credits, 0,10 $ ad azione) o per utente. Si comincia con un pilota su un solo caso d'uso."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "Salesforce stessa è partita con 200 utenti per quattro settimane; Telepass ha visto il ritorno dell'investimento entro 10 settimane."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · prezzi Agentforce",
+     "u": "https://www.salesforce.com/agentforce/pricing/"
+    },
+    {
+     "t": "Salesforce · Flex Credits, mag 2025",
+     "u": "https://www.salesforce.com/news/press-releases/2025/05/15/agentforce-flexible-pricing-news/"
+    },
+    {
+     "t": "Salesforce · Customer Zero",
+     "u": "https://www.salesforce.com/it/agentforce/use-cases/customer-zero/"
+    },
+    {
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
+    }
+   ]
+  }
+ ]
+}

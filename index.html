@@ -1,0 +1,590 @@
+<!doctype html>
+<!--
+  FLASHCARD SALESFORCE - carte per studiare prodotti e casi cliente Salesforce,
+  una alla volta, con la stessa logica di Swipe Lavoro.
+
+  Come funziona, in breve:
+    1. La pagina scarica cards.json (il contenuto delle carte) e lo mescola
+    2. Tocchi la carta per girarla: domanda da un lato, risposta dall'altro
+    3. Destra = "La so", sinistra = "Da ripassare". Si può annullare (↶)
+    4. I progressi restano nel browser di questo dispositivo (localStorage)
+
+  Struttura del file:
+    HEAD    impostazioni per telefono (icona, schermo intero) + stile (CSS)
+    BODY    lo scheletro: intestazione, categorie, schede, mazzo, piè di pagina
+    SCRIPT  la logica, divisa in blocchi numerati (1 ... 8) con un titolo ciascuno
+
+  Per cambiare il contenuto delle carte: modifica cards.json (vedi README).
+  Per cambiare la pagina: cerca il blocco giusto, modifica, aggiorna VERSIONE
+  (blocco 1 della logica) e annota il cambio in CHANGELOG.md.
+-->
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Flashcard Salesforce</title>
+<meta name="robots" content="noindex">
+<!-- chiede al browser di non usare copie vecchie della pagina (non sempre rispettato: vedi blocco 8) -->
+<meta http-equiv="Cache-Control" content="no-cache">
+
+<!-- Telefono: icona sulla schermata Home e apertura a schermo intero come un'app -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Flashcard SF">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#1f5fa6">
+
+<style>
+/* ===== Colori: modifica qui per cambiare tema (chiaro sopra, scuro sotto) ===== */
+:root{
+  --bg:#f4f1ea; --card:#fffdf8; --ink:#1d1b18; --muted:#6f6a61; --line:#e4ded2;
+  --green:#1f7a4d; --green-bg:#e3f2e9; --red:#b3402f; --red-bg:#f8e4df;
+  --accent:#1f5fa6; --accent-bg:#e3ecf8; --chip:#efe9dd; --shadow:0 18px 40px -18px rgba(40,30,10,.35);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#151513; --card:#1f1f1c; --ink:#eeeae2; --muted:#a29d93; --line:#33322e;
+  --green:#58c08b; --green-bg:#1d3327; --red:#e57b69; --red-bg:#3a221d;
+  --accent:#7fb2ea; --accent-bg:#1c2a3b; --chip:#2b2a26; --shadow:0 18px 40px -18px rgba(0,0,0,.8);
+}}
+
+/* ===== Impaginazione generale ===== */
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+body{min-height:100dvh;display:flex;flex-direction:column;align-items:center;
+  padding:max(14px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom))}
+.wrap{width:100%;max-width:520px;display:flex;flex-direction:column;flex:1}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.prog{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.hidden{display:none!important}
+
+/* ===== Categorie (fila di pillole che scorre di lato) ===== */
+.cats{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.cats::-webkit-scrollbar{display:none}
+.cats button{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:13px;
+  font-weight:600;padding:6px 12px;border-radius:99px;cursor:pointer;white-space:nowrap;flex:none}
+.cats button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+
+/* ===== Schede: Da studiare / Da ripassare / Sapute ===== */
+.tabs{display:flex;gap:6px;background:var(--chip);padding:4px;border-radius:12px;margin-bottom:8px}
+.tabs button{flex:1;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;font-weight:600;
+  padding:8px 4px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.tabs button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.n{font-weight:500;opacity:.7;margin-left:3px}
+/* barra delle carte sapute nella categoria scelta */
+.bar{height:5px;border-radius:99px;background:var(--chip);overflow:hidden;margin-bottom:14px}
+.bar div{height:100%;width:0;background:var(--green);border-radius:99px;transition:width .3s}
+
+/* ===== Mazzo di carte ===== */
+.deck{position:relative;flex:1;min-height:440px}
+.card{position:absolute;inset:0;touch-action:pan-y;user-select:none;-webkit-user-select:none;will-change:transform}
+.card.back{transform:scale(.95) translateY(14px);opacity:.6;pointer-events:none}
+.card.anim{transition:transform .28s ease,opacity .28s ease}
+/* "inner" è la carta vera e propria: si schiaccia e riapre quando si gira (blocco 6) */
+.inner{position:absolute;inset:0;background:var(--card);border:1px solid var(--line);border-radius:20px;
+  box-shadow:var(--shadow);overflow:hidden;transition:transform .13s ease}
+.card.girando .inner{transform:scaleX(0)}
+.face{position:absolute;inset:0;display:flex;flex-direction:column}
+.badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:18px 20px 0}
+.b{font-size:11.5px;font-weight:700;letter-spacing:.02em;padding:3px 9px;border-radius:99px;
+  background:var(--chip);color:var(--muted)}
+.b.cat{background:var(--accent-bg);color:var(--accent)}
+.b.ko{background:var(--red-bg);color:var(--red)}
+.b.ok{background:var(--green-bg);color:var(--green)}
+.pos{margin-left:auto;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+/* lato domanda */
+.q{flex:1;display:flex;flex-direction:column;justify-content:center;padding:10px 24px 8px}
+.q .txt{font-size:22px;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+.tap{text-align:center;font-size:12px;color:var(--muted);padding:0 20px 18px}
+/* lato risposta: scorre in verticale se è lunga; la sfumatura in basso fa capire che c'è altro */
+.ans{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 20px 28px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 28px),transparent);
+  mask-image:linear-gradient(to bottom,#000 calc(100% - 28px),transparent)}
+.ans .titolo{font-size:13.5px;font-weight:650;color:var(--muted);margin:0 0 10px;line-height:1.35}
+.ans .nome{font-size:21px;font-weight:750;color:var(--accent);margin:0 0 6px;letter-spacing:-.01em}
+.ans .chiedi{font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px}
+.sez{margin:0 0 12px}
+.sez h4{margin:0 0 3px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.sez p{margin:0;font-size:14.5px;line-height:1.45}
+.sez ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.45}
+.sez li{margin:2px 0}
+.fonti{border-top:1px solid var(--line);padding-top:10px;margin-top:4px;font-size:12px;color:var(--muted)}
+.fonti a{color:var(--muted);display:block;margin:3px 0;text-decoration:underline;text-underline-offset:2px;word-break:break-word}
+.mask{letter-spacing:1px;color:var(--muted)}
+/* timbri che compaiono trascinando */
+.stamp{position:absolute;top:22px;font-size:20px;font-weight:800;letter-spacing:.06em;z-index:2;
+  padding:4px 12px;border:3px solid;border-radius:10px;opacity:0;pointer-events:none;background:var(--card)}
+.stamp.yes{left:18px;color:var(--green);transform:rotate(-12deg)}
+.stamp.no{right:18px;color:var(--red);transform:rotate(12deg)}
+
+/* ===== Pulsanti sotto il mazzo ===== */
+.actions{display:flex;justify-content:center;align-items:center;gap:18px;margin:18px 0 6px}
+.act{width:64px;height:64px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);
+  font-size:26px;cursor:pointer;box-shadow:var(--shadow);display:grid;place-items:center;transition:transform .12s;padding:0}
+.act:active{transform:scale(.92)}
+.act.no{color:var(--red)} .act.yes{color:var(--green)}
+.act.small{width:46px;height:46px;font-size:19px;color:var(--muted)}
+.act:disabled{opacity:.35;cursor:default}
+.hint{text-align:center;font-size:12px;color:var(--muted)}
+
+/* ===== Mazzo finito / vuoto ===== */
+.empty-state{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;color:var(--muted);padding:30px;gap:14px;
+  border:2px dashed var(--line);border-radius:20px}
+.empty-state b{color:var(--ink);font-size:18px;display:block;margin-bottom:4px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:10px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;text-decoration:none;cursor:pointer}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--card)}
+
+/* ===== Piè di pagina e opzioni ===== */
+footer{margin-top:18px;font-size:11.5px;color:var(--muted);text-align:center}
+footer details{margin-top:8px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+footer summary{cursor:pointer;text-align:center;font-weight:600;font-size:12.5px}
+.opt{display:flex;flex-direction:column;gap:10px;margin-top:10px;font-size:13px;color:var(--ink)}
+.opt label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.opt input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.opt small{display:block;color:var(--muted);font-size:12px}
+.opt .btns{justify-content:flex-start}
+.opt .btn.del{color:var(--red)}
+.opt ul{margin:0;padding-left:18px;color:var(--muted);font-size:12.5px}
+.agg{border:0;background:none;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;padding:2px 4px;font-size:11.5px;text-decoration:underline}
+/* avviso "nuova versione" in cima */
+.upd-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--accent);color:var(--card);
+  padding:10px 14px;border-radius:12px;margin-bottom:12px;font-size:13.5px;font-weight:600}
+.upd-bar button{border:0;font:inherit;font-weight:700;cursor:pointer;border-radius:9px;background:var(--card);color:var(--accent);padding:6px 12px}
+/* messaggio breve in basso, con eventuale "Annulla" */
+.toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);
+  background:var(--ink);color:var(--card);padding:10px 14px;border-radius:12px;font-size:13.5px;
+  display:flex;gap:14px;align-items:center;box-shadow:var(--shadow);z-index:9;max-width:calc(100% - 32px)}
+.toast button{border:0;background:none;color:var(--card);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Intestazione: titolo + quante carte sono sapute nella categoria scelta -->
+  <header>
+    <h1>🗂️ Flashcard Salesforce</h1>
+    <div class="prog" id="prog">carico…</div>
+  </header>
+
+  <!-- Avviso nuova versione: compare da solo quando su GitHub c'è una versione più recente (blocco 8) -->
+  <div class="upd-bar hidden" id="upd-bar"><span id="upd-txt">Nuova versione disponibile</span><button id="b-agg">Aggiorna</button></div>
+
+  <!-- Categorie: Tutte, Piattaforma e AI, Cloud, ... (riempite dal blocco 5) -->
+  <div class="cats" id="cats"></div>
+
+  <!-- Le tre schede: carte da studiare / da ripassare / già sapute -->
+  <nav class="tabs" id="tabs">
+    <button data-m="studia">Da studiare<span class="n" id="n-studia"></span></button>
+    <button data-m="ripassa">Da ripassare<span class="n" id="n-ripassa"></span></button>
+    <button data-m="sapute">Sapute<span class="n" id="n-sapute"></span></button>
+  </nav>
+  <div class="bar" title="Carte sapute nella categoria scelta"><div id="bar"></div></div>
+
+  <!-- Il mazzo e i pulsanti: da ripassare / annulla / gira / la so -->
+  <section style="display:flex;flex-direction:column;flex:1">
+    <div class="deck" id="deck"></div>
+    <div class="actions">
+      <button class="act no" id="b-no" title="Da ripassare (←)" aria-label="Da ripassare">✕</button>
+      <button class="act small" id="b-undo" title="Annulla (Z)" aria-label="Annulla l'ultima scelta">↶</button>
+      <button class="act small" id="b-flip" title="Gira la carta (spazio)" aria-label="Gira la carta">⟲</button>
+      <button class="act yes" id="b-yes" title="La so (→)" aria-label="La so">✓</button>
+    </div>
+    <div class="hint">Tocca per girare · destra = la so · sinistra = ripasso</div>
+  </section>
+
+  <!-- Piè di pagina: numeri, versione, opzioni -->
+  <footer>
+    <div id="foot"></div>
+    <details id="opzioni">
+      <summary>Opzioni</summary>
+      <div class="opt">
+        <label><input type="checkbox" id="o-inverti">
+          <span>Parti dalla risposta<small>Vedi la spiegazione (con il nome nascosto) e indovini il prodotto, il cliente o la situazione.</small></span></label>
+        <div class="btns">
+          <button class="btn" id="o-mescola">Mescola di nuovo questo giro</button>
+          <button class="btn del" id="o-azzera">Azzera i progressi</button>
+        </div>
+        <ul>
+          <li>Da computer: spazio gira la carta, ← e → decidono, Z annulla.</li>
+          <li>I progressi restano solo su questo dispositivo e in questo browser.</li>
+        </ul>
+      </div>
+    </details>
+  </footer>
+</div>
+<div class="toast hidden" id="toast"></div>
+
+<script>
+/* =====================================================================
+   1. IMPOSTAZIONI
+   ===================================================================== */
+const VERSIONE = "1.0";            // mostrata in fondo alla pagina; aggiornala a ogni modifica
+const KEY = "flashcard-salesforce/v1";        // dove si salvano i progressi (localStorage)
+const KEY_CARTE = "flashcard-salesforce/carte"; // copia delle carte per usarle anche senza rete
+const SOGLIA_SWIPE = 90;           // pixel di trascinamento oltre i quali la carta "parte"
+const MODI = {                     // le tre schede e quali carte contengono
+  studia:  st => st?.s !== "saputa",   // nuove + da ripassare
+  ripassa: st => st?.s === "ripasso",
+  sapute:  st => st?.s === "saputa",
+};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* =====================================================================
+   2. STATO SALVATO NEL BROWSER
+   stati[id] = {s:"saputa"|"ripasso", ok:volte saputa, ko:volte sbagliata, t:quando}
+   giri[chiave] = carte ancora da mostrare nel giro in corso (una lista per
+   ogni combinazione scheda + categoria, così cambiando scheda non si perde il punto)
+   ===================================================================== */
+const VUOTO = () => ({stati:{}, giri:{}, modo:"studia", cat:"tutte", inverti:false});
+let state = (() => {
+  try { return Object.assign(VUOTO(), JSON.parse(localStorage.getItem(KEY))); }
+  catch(e){ return VUOTO(); }
+})();
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
+const storia = [];                 // ultime scelte, per il tasto Annulla
+let carte = [], categorie = [], perId = new Map(), aggiornato = "";
+let lato = "A";                    // lato visibile della carta in cima: A = domanda, B = risposta
+
+/* =====================================================================
+   3. CARICAMENTO DELLE CARTE (cards.json)
+   Se non c'è rete si usa l'ultima copia salvata nel browser.
+   ===================================================================== */
+async function caricaCarte(){
+  let d = null;
+  try {
+    d = await fetch("cards.json?t=" + Date.now(), {cache:"no-store"}).then(r => { if(!r.ok) throw 0; return r.json(); });
+    try { localStorage.setItem(KEY_CARTE, JSON.stringify(d)); } catch(e){}
+  } catch(e){
+    try { d = JSON.parse(localStorage.getItem(KEY_CARTE)); } catch(e2){}
+  }
+  if(!d) throw new Error("carte non disponibili");
+  carte = d.carte; categorie = d.categorie; aggiornato = d.aggiornato || "";
+  perId = new Map(carte.map(c => [c.id, c]));
+}
+
+/* =====================================================================
+   4. FILTRI E GIRI
+   Un "giro" è il mazzo mescolato delle carte della scheda + categoria scelte.
+   Ogni scelta (la so / da ripassare) toglie la carta dal giro; quando il giro
+   finisce si può iniziarne uno nuovo con le carte che restano.
+   ===================================================================== */
+const chiaveGiro = () => state.modo + "|" + state.cat;
+const nellaCategoria = c => state.cat === "tutte" || c.cat === state.cat;
+const qualifica = (c, modo = state.modo) => nellaCategoria(c) && MODI[modo](state.stati[c.id]);
+
+function mescola(a){
+  for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+// nel giro "Da studiare" le carte già sbagliate vanno dopo le nuove, così si vede prima tutto
+function nuovoGiro(){
+  let ids = mescola(carte.filter(c => qualifica(c)).map(c => c.id));
+  if(state.modo === "studia"){
+    const nuove = ids.filter(id => !state.stati[id]), vecchie = ids.filter(id => state.stati[id]);
+    ids = nuove.concat(vecchie);
+  }
+  state.giri[chiaveGiro()] = {ids, tot: ids.length};
+  save();
+}
+// restituisce il giro in corso, ripulito dalle carte che non c'entrano più
+function giro(){
+  let g = state.giri[chiaveGiro()];
+  if(!g || !Array.isArray(g.ids)){ nuovoGiro(); g = state.giri[chiaveGiro()]; }
+  g.ids = g.ids.filter(id => perId.has(id) && qualifica(perId.get(id)));
+  return g;
+}
+
+/* =====================================================================
+   5. DISEGNO DELLA PAGINA
+   ===================================================================== */
+const nomeCat = id => categorie.find(c => c.id === id)?.nome || id;
+
+function render(){
+  // categorie
+  $("cats").innerHTML = [{id:"tutte", nome:"Tutte"}].concat(categorie).map(c =>
+    `<button data-c="${c.id}" class="${c.id === state.cat ? "on" : ""}">${esc(c.nome)}</button>`).join("");
+  // schede con i numeri
+  for(const m of Object.keys(MODI)){
+    const n = carte.filter(c => qualifica(c, m)).length;
+    $("n-" + m).textContent = n || "";
+    document.querySelector(`#tabs [data-m="${m}"]`).classList.toggle("on", m === state.modo);
+  }
+  // progresso: sapute / totale nella categoria
+  const tot = carte.filter(nellaCategoria).length;
+  const ok = carte.filter(c => qualifica(c, "sapute")).length;
+  $("prog").textContent = `Sapute ${ok}/${tot}`;
+  $("bar").style.width = tot ? (ok / tot * 100) + "%" : "0";
+  $("o-inverti").checked = !!state.inverti;
+  $("foot").innerHTML = `${carte.length} carte · contenuti aggiornati al ${dataIt(aggiornato)} · v${VERSIONE} <button class="agg" id="b-agg2">Aggiorna</button>`;
+  $("b-agg2").onclick = aggiornaPagina;
+  renderMazzo();
+}
+const dataIt = iso => iso ? iso.split("-").reverse().join("/") : "";
+
+function renderMazzo(){
+  const g = giro();
+  lato = "A";
+  const [primo, secondo] = g.ids;
+  $("b-undo").disabled = !storia.length;
+  ["b-no","b-yes","b-flip"].forEach(b => $(b).disabled = !primo);
+  if(!primo){ $("deck").innerHTML = vuotoHTML(); return; }
+  const pos = g.tot - g.ids.length + 1;
+  $("deck").innerHTML =
+    (secondo ? cartaHTML(perId.get(secondo), "back", "") : "") +
+    cartaHTML(perId.get(primo), "top", `${pos}/${g.tot}`);
+  attachDrag($("deck").querySelector(".card.top"));
+}
+
+// cosa mostrare quando il giro è finito o la scheda è vuota
+function vuotoHTML(){
+  const restano = carte.filter(c => qualifica(c)).length;
+  const daRip = carte.filter(c => qualifica(c, "ripassa")).length;
+  const tutte = carte.filter(nellaCategoria).length;
+  let t, b = "";
+  if(state.modo === "studia"){
+    if(!restano){ t = `<b>Le sai tutte 🎉</b>Hai segnato come sapute tutte le ${tutte} carte di questa categoria.`;
+      b = `<button class="btn" data-go="sapute">Ripassa le sapute</button>`; }
+    else { t = `<b>Giro finito</b>${restano} carte ancora da imparare${daRip ? `, di cui ${daRip} da ripassare` : ""}.`;
+      b = `<button class="btn pri" data-giro="1">Nuovo giro</button>` + (daRip ? `<button class="btn" data-go="ripassa">Solo quelle da ripassare</button>` : ""); }
+  } else if(state.modo === "ripassa"){
+    if(!restano){ t = `<b>Niente da ripassare</b>Le carte che scorri a sinistra finiscono qui.`;
+      b = `<button class="btn pri" data-go="studia">Torna a studiare</button>`; }
+    else { t = `<b>Ripasso finito</b>Ne restano ${restano} da ripassare.`;
+      b = `<button class="btn pri" data-giro="1">Ripassale di nuovo</button>`; }
+  } else {
+    if(!restano){ t = `<b>Ancora nessuna carta saputa</b>Le carte che scorri a destra finiscono qui.`;
+      b = `<button class="btn pri" data-go="studia">Vai a studiare</button>`; }
+    else { t = `<b>Controllo finito</b>Hai rivisto tutte le ${restano} carte sapute.`;
+      b = `<button class="btn pri" data-giro="1">Ricontrollale</button>`; }
+  }
+  return `<div class="empty-state"><div>${t}</div><div class="btns">${b}</div></div>`;
+}
+
+// parole da nascondere nella modalità "Parti dalla risposta" (solo parole intere:
+// "Fin" va nascosto, "fino" no)
+function maschera(testo, c){
+  const termini = [c.nome, ...(c.alias || [])].filter(Boolean).sort((a, b) => b.length - a.length);
+  let t = String(testo);
+  for(const x of termini){
+    const parola = x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    t = t.replace(new RegExp(`(?<![\\p{L}\\p{N}])${parola}(?![\\p{L}\\p{N}])`, "giu"), "\u0000");
+  }
+  return esc(t).replace(/\u0000/g, '<span class="mask">▢▢▢</span>');
+}
+function sezioniHTML(c, nascondi){
+  const f = nascondi ? (t => maschera(t, c)) : esc;
+  return c.retro.map(s => `<div class="sez"><h4>${esc(s.h)}</h4>${
+    s.l ? `<ul>${s.l.map(x => `<li>${f(x)}</li>`).join("")}</ul>` : `<p>${f(s.t)}</p>`}</div>`).join("");
+}
+function fontiHTML(c){
+  return `<div class="fonti">Fonti:${c.fonti.map(x =>
+    `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")}</div>`;
+}
+function badgeHTML(c, pos){
+  const st = state.stati[c.id];
+  const stato = !st ? "" : st.s === "saputa" ? `<span class="b ok">Saputa</span>`
+              : `<span class="b ko">Da ripassare${st.ko > 1 ? ` · ${st.ko} errori` : ""}</span>`;
+  return `<div class="badges"><span class="b cat">${esc(nomeCat(c.cat))}</span>${
+    c.tag ? `<span class="b">${esc(c.tag)}</span>` : ""}${stato}${pos ? `<span class="pos">${pos}</span>` : ""}</div>`;
+}
+function domandaInversa(c){
+  return c.cat === "estero" || c.cat === "italia" ? "Di quale cliente si parla?"
+       : c.cat === "situazioni" ? "Qual era la situazione del prospect?"
+       : "Di quale prodotto o concetto si parla?";
+}
+function cartaHTML(c, tipo, pos){
+  // lato A = quello che vedi prima; lato B = quello che vedi girando la carta
+  const domanda = `<div class="q"><div class="txt">${esc(c.fronte)}</div></div><div class="tap">Tocca per vedere la risposta</div>`;
+  const risposta = `<div class="ans"><p class="titolo">${esc(c.fronte)}</p>${sezioniHTML(c, false)}${fontiHTML(c)}</div><div class="tap">Tocca per tornare alla domanda</div>`;
+  const indizio = `<div class="ans"><p class="chiedi">${domandaInversa(c)}</p>${sezioniHTML(c, true)}</div><div class="tap">Tocca per vedere la soluzione</div>`;
+  const soluzione = `<div class="ans">${c.nome && c.cat !== "situazioni" ? `<p class="nome">${esc(c.nome)}</p>` : ""}<p class="titolo">${esc(c.fronte)}</p>${sezioniHTML(c, false)}${fontiHTML(c)}</div><div class="tap">Tocca per tornare all'indizio</div>`;
+  const [A, B] = state.inverti ? [indizio, soluzione] : [domanda, risposta];
+  return `<div class="card ${tipo === "back" ? "back" : "top"}" data-id="${esc(c.id)}">
+    <div class="inner">
+      <div class="face fa">${badgeHTML(c, pos)}${A}</div>
+      <div class="face fb hidden">${badgeHTML(c, pos)}${B}</div>
+    </div>
+    <div class="stamp yes">LA SO</div><div class="stamp no">RIPASSO</div>
+  </div>`;
+}
+
+/* =====================================================================
+   6. GIRARE, DECIDERE, ANNULLARE, TRASCINARE
+   ===================================================================== */
+const cartaInCima = () => $("deck").querySelector(".card.top");
+
+// la carta si "schiaccia", cambia lato e si riapre
+function gira(){
+  const card = cartaInCima();
+  if(!card || card.classList.contains("girando")) return;
+  card.classList.add("girando");
+  setTimeout(() => {
+    lato = lato === "A" ? "B" : "A";
+    card.querySelector(".fa").classList.toggle("hidden", lato !== "A");
+    card.querySelector(".fb").classList.toggle("hidden", lato !== "B");
+    card.querySelector(".fb .ans")?.scrollTo(0, 0);
+    card.classList.remove("girando");
+  }, 130);
+}
+
+// saputa = true (destra) oppure false (sinistra)
+function decidi(saputa){
+  const card = cartaInCima();
+  if(!card) return;
+  const id = card.dataset.id, chiave = chiaveGiro();
+  const prima = state.stati[id] ? {...state.stati[id]} : null;
+  const st = state.stati[id] || {ok:0, ko:0};
+  st.s = saputa ? "saputa" : "ripasso";
+  st[saputa ? "ok" : "ko"] = (st[saputa ? "ok" : "ko"] || 0) + 1;
+  st.t = new Date().toISOString();
+  state.stati[id] = st;
+  const g = state.giri[chiave];
+  if(g) g.ids = g.ids.filter(x => x !== id);
+  storia.push({id, prima, chiave});
+  save();
+  // animazione di uscita, poi si ridisegna
+  const dir = saputa ? 1 : -1;
+  card.classList.add("anim");
+  card.style.transform = `translate(${dir * innerWidth}px, 40px) rotate(${dir * 24}deg)`;
+  card.style.opacity = "0";
+  const dietro = $("deck").querySelector(".card.back");
+  if(dietro){ dietro.classList.add("anim"); dietro.classList.remove("back"); }
+  setTimeout(render, 260);
+}
+
+// rimette la carta com'era e di nuovo in cima al suo giro
+function annulla(){
+  const u = storia.pop();
+  if(!u) return;
+  if(u.prima) state.stati[u.id] = u.prima; else delete state.stati[u.id];
+  const g = state.giri[u.chiave];
+  if(g && !g.ids.includes(u.id)) g.ids.unshift(u.id);
+  const [modo, cat] = u.chiave.split("|");
+  state.modo = modo; state.cat = cat;    // torna alla scheda dove era la carta
+  save(); render();
+}
+
+// trascinamento con dito o mouse; un tocco senza movimento gira la carta
+function attachDrag(card){
+  let x0 = 0, y0 = 0, dx = 0, dy = 0, giu = false, oriz = false, vert = false, id = null, t0 = 0;
+  const yes = card.querySelector(".stamp.yes"), no = card.querySelector(".stamp.no");
+  card.addEventListener("pointerdown", e => {
+    if(e.target.closest("a, button")) return;   // i link delle fonti si aprono normalmente
+    giu = true; oriz = vert = false; id = e.pointerId; x0 = e.clientX; y0 = e.clientY; dx = dy = 0; t0 = Date.now();
+    card.classList.remove("anim");
+  });
+  card.addEventListener("pointermove", e => {
+    if(!giu || e.pointerId !== id) return;
+    dx = e.clientX - x0; dy = e.clientY - y0;
+    // movimento orizzontale = swipe; verticale = lascia scorrere la risposta
+    if(!oriz && !vert){
+      if(Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)){ oriz = true; try { card.setPointerCapture(id); } catch(err){} }
+      else if(Math.abs(dy) > 8) vert = true;
+    }
+    if(!oriz) return;
+    card.style.transform = `translate(${dx}px, ${dy * 0.15}px) rotate(${dx / 18}deg)`;
+    yes.style.opacity = Math.max(0, Math.min(1, dx / SOGLIA_SWIPE));
+    no.style.opacity = Math.max(0, Math.min(1, -dx / SOGLIA_SWIPE));
+  });
+  const fine = annullato => () => {
+    if(!giu) return; giu = false;
+    if(oriz && !annullato){
+      if(dx > SOGLIA_SWIPE) return decidi(true);
+      if(dx < -SOGLIA_SWIPE) return decidi(false);
+    }
+    card.classList.add("anim"); card.style.transform = ""; yes.style.opacity = no.style.opacity = 0;
+    if(!annullato && !oriz && !vert && Date.now() - t0 < 600) gira();
+  };
+  card.addEventListener("pointerup", fine(false));
+  card.addEventListener("pointercancel", fine(true));
+}
+
+$("b-yes").onclick = () => decidi(true);
+$("b-no").onclick = () => decidi(false);
+$("b-flip").onclick = gira;
+$("b-undo").onclick = annulla;
+document.addEventListener("keydown", e => {
+  const su = e.target.closest ? e.target : document.body;
+  if(su.closest("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if(e.key === "ArrowRight") decidi(true);
+  else if(e.key === "ArrowLeft") decidi(false);
+  else if(e.key === " " || e.key === "Enter"){
+    if(su.closest("button, a, summary")) return;   // su un pulsante vale il pulsante stesso
+    e.preventDefault(); gira();
+  }
+  else if(e.key.toLowerCase() === "z") annulla();
+});
+
+/* =====================================================================
+   7. CATEGORIE, SCHEDE E OPZIONI
+   ===================================================================== */
+$("cats").onclick = e => {
+  const b = e.target.closest("[data-c]"); if(!b) return;
+  state.cat = b.dataset.c; save(); render();
+  b.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+};
+$("tabs").onclick = e => {
+  const b = e.target.closest("[data-m]"); if(!b) return;
+  state.modo = b.dataset.m; save(); render();
+};
+// pulsanti dentro il riquadro "giro finito"
+$("deck").addEventListener("click", e => {
+  const go = e.target.closest("[data-go]"), ng = e.target.closest("[data-giro]");
+  if(go){ state.modo = go.dataset.go; nuovoGiro(); render(); }
+  else if(ng){ nuovoGiro(); render(); }
+});
+$("o-inverti").onchange = e => { state.inverti = e.target.checked; save(); renderMazzo(); };
+$("o-mescola").onclick = () => { nuovoGiro(); render(); toast("Giro rimescolato"); };
+// azzera: serve un secondo tocco entro 4 secondi, per evitare incidenti
+let confermaAzzera = 0;
+$("o-azzera").onclick = () => {
+  if(Date.now() - confermaAzzera > 4000){ confermaAzzera = Date.now(); $("o-azzera").textContent = "Tocca di nuovo per confermare"; return; }
+  const inverti = state.inverti;
+  state = VUOTO(); state.inverti = inverti; storia.length = 0; save(); render();
+  $("o-azzera").textContent = "Azzera i progressi"; toast("Progressi azzerati");
+};
+let timerToast = null;
+function toast(msg){
+  $("toast").innerHTML = esc(msg); $("toast").classList.remove("hidden");
+  clearTimeout(timerToast); timerToast = setTimeout(() => $("toast").classList.add("hidden"), 2200);
+}
+
+/* =====================================================================
+   8. AVVIO E AGGIORNAMENTO DELLA PAGINA
+   Il telefono (soprattutto l'app sulla schermata Home) tiene a lungo una
+   copia vecchia della pagina. Qui si scarica la pagina "fresca" da GitHub,
+   si legge la sua VERSIONE e, se è diversa da quella in uso, compare
+   l'avviso in alto. "Aggiorna" ricarica saltando la copia salvata.
+   ===================================================================== */
+function aggiornaPagina(){ location.replace(location.pathname + "?v=" + Date.now()); }
+async function controllaVersione(){
+  try {
+    const t = await fetch("index.html?t=" + Date.now(), {cache:"no-store"}).then(r => r.text());
+    const m = t.match(/const VERSIONE = "([^"]+)"/);
+    if(m && m[1] !== VERSIONE){
+      $("upd-txt").textContent = `Nuova versione v${m[1]} (hai la v${VERSIONE})`;
+      $("upd-bar").classList.remove("hidden");
+    }
+  } catch(e){}                       // senza rete: nessun avviso
+}
+$("b-agg").onclick = aggiornaPagina;
+if(location.search.includes("v=")) window.history.replaceState(null, "", location.pathname);
+
+caricaCarte().then(render).catch(() => {
+  $("prog").textContent = "";
+  $("foot").textContent = `v${VERSIONE}`;
+  $("deck").innerHTML = `<div class="empty-state"><div><b>Carte non disponibili</b>Controlla la connessione e riprova.</div><div class="btns"><button class="btn pri" onclick="location.reload()">Riprova</button></div></div>`;
+});
+controllaVersione();
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "visible") controllaVersione(); });
+</script>
+</body>
+</html>
