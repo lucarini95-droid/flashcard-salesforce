@@ -14,6 +14,9 @@
     BODY    lo scheletro: intestazione, categorie, schede, mazzo, piè di pagina
     SCRIPT  la logica, divisa in blocchi numerati (1 ... 8) con un titolo ciascuno
 
+  Le carte riservate sono in private.enc.json, cifrate: si aprono con una
+  password, una volta per dispositivo (blocco 3b e README).
+
   Per cambiare il contenuto delle carte: modifica cards.json (vedi README).
   Per cambiare la pagina: cerca il blocco giusto, modifica, aggiorna VERSIONE
   (blocco 1 della logica) e annota il cambio in CHANGELOG.md.
@@ -69,6 +72,7 @@ h1{font-size:19px;margin:0;letter-spacing:-.01em}
 .cats button{border:1px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-size:13px;
   font-weight:600;padding:6px 12px;border-radius:99px;cursor:pointer;white-space:nowrap;flex:none}
 .cats button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.cats button[data-lock]{border-style:dashed}
 
 /* ===== Schede: Da studiare / Da ripassare / Sapute ===== */
 .tabs{display:flex;gap:6px;background:var(--chip);padding:4px;border-radius:12px;margin-bottom:8px}
@@ -115,6 +119,7 @@ h1{font-size:19px;margin:0;letter-spacing:-.01em}
 .sez li{margin:2px 0}
 .fonti{border-top:1px solid var(--line);padding-top:10px;margin-top:4px;font-size:12px;color:var(--muted)}
 .fonti a{color:var(--muted);display:block;margin:3px 0;text-decoration:underline;text-underline-offset:2px;word-break:break-word}
+.fonti span{display:block;margin:3px 0}
 .mask{letter-spacing:1px;color:var(--muted)}
 /* timbri che compaiono trascinando */
 .stamp{position:absolute;top:22px;font-size:20px;font-weight:800;letter-spacing:.06em;z-index:2;
@@ -141,6 +146,11 @@ h1{font-size:19px;margin:0;letter-spacing:-.01em}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:10px;border:1px solid var(--line);
   background:var(--card);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;text-decoration:none;cursor:pointer}
 .btn.pri{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.btn:disabled{opacity:.5;cursor:default}
+/* riquadro per la password delle carte riservate (blocco 3b) */
+.sblocco input{width:100%;max-width:260px;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);
+  border-radius:10px;background:var(--bg);color:var(--ink);text-align:center;letter-spacing:.06em}
+.sblocco .err{color:var(--red);font-size:13px;font-weight:600;min-height:18px}
 
 /* ===== Piè di pagina e opzioni ===== */
 footer{margin-top:18px;font-size:11.5px;color:var(--muted);text-align:center}
@@ -206,14 +216,16 @@ footer summary{cursor:pointer;text-align:center;font-weight:600;font-size:12.5px
       <summary>Opzioni</summary>
       <div class="opt">
         <label><input type="checkbox" id="o-inverti">
-          <span>Parti dalla risposta<small>Vedi la spiegazione (con il nome nascosto) e indovini il prodotto, il cliente o la situazione.</small></span></label>
+          <span>Parti dalla risposta<small>Vedi la spiegazione (con il nome nascosto) e indovini il prodotto, il cliente, la situazione o la domanda.</small></span></label>
         <div class="btns">
           <button class="btn" id="o-mescola">Mescola di nuovo questo giro</button>
           <button class="btn del" id="o-azzera">Azzera i progressi</button>
+          <button class="btn hidden" id="o-blocca">Blocca le carte riservate</button>
         </div>
         <ul>
           <li>Da computer: spazio gira la carta, ← e → decidono, Z annulla.</li>
           <li>I progressi restano solo su questo dispositivo e in questo browser.</li>
+          <li>Le carte riservate si aprono con la password una volta per dispositivo e restano aperte finché non le blocchi.</li>
         </ul>
       </div>
     </details>
@@ -225,9 +237,11 @@ footer summary{cursor:pointer;text-align:center;font-weight:600;font-size:12.5px
 /* =====================================================================
    1. IMPOSTAZIONI
    ===================================================================== */
-const VERSIONE = "1.1";            // mostrata in fondo alla pagina; aggiornala a ogni modifica
+const VERSIONE = "1.2";            // mostrata in fondo alla pagina; aggiornala a ogni modifica
 const KEY = "flashcard-salesforce/v1";        // dove si salvano i progressi (localStorage)
 const KEY_CARTE = "flashcard-salesforce/carte"; // copia delle carte per usarle anche senza rete
+const KEY_PRIV = "flashcard-salesforce/riservate";  // copia CIFRATA delle carte riservate (per usarle senza rete)
+const KEY_CHIAVE = "flashcard-salesforce/chiave";   // chiave salvata dopo la password giusta
 const SOGLIA_SWIPE = 90;           // pixel di trascinamento oltre i quali la carta "parte"
 const MODI = {                     // le tre schede e quali carte contengono
   studia:  st => st?.s !== "saputa",   // nuove + da ripassare
@@ -258,6 +272,7 @@ let lato = "A";                    // lato visibile della carta in cima: A = dom
    Se non c'è rete si usa l'ultima copia salvata nel browser.
    ===================================================================== */
 async function caricaCarte(){
+  const attesaRiservate = puoCifrare ? scaricaRiservate() : null;   // in parallelo con cards.json
   let d = null;
   try {
     d = await fetch("cards.json?t=" + Date.now(), {cache:"no-store"}).then(r => { if(!r.ok) throw 0; return r.json(); });
@@ -268,8 +283,84 @@ async function caricaCarte(){
   if(!d) throw new Error("carte non disponibili");
   carte = d.carte; categorie = d.categorie; aggiornato = d.aggiornato || "";
   perId = new Map(carte.map(c => [c.id, c]));
-  // se la categoria salvata non esiste più (es. dopo un aggiornamento delle carte) si torna a "Tutte"
+  if(attesaRiservate){ await attesaRiservate; await sbloccaConChiaveSalvata(); }
+  // se la categoria salvata non esiste più (es. dopo un aggiornamento delle carte,
+  // o se le carte riservate sono bloccate) si torna a "Tutte"
   if(state.cat !== "tutte" && !categorie.some(c => c.id === state.cat)){ state.cat = "tutte"; save(); }
+}
+
+/* =====================================================================
+   3b. CARTE RISERVATE (cifrate)
+   private.enc.json = {v, salt, iv, iter, ct}: le carte riservate cifrate con
+   AES-GCM; la chiave si ricava dalla password con PBKDF2-SHA256. Nel repo
+   pubblico c'è solo questo file cifrato. Dopo la password giusta la chiave
+   resta in questo browser, così la password serve una volta per dispositivo.
+   Per aggiornare le carte: strumenti/privato.mjs (vedi README).
+   ===================================================================== */
+const puoCifrare = !!(window.crypto && crypto.subtle);   // c'è solo su https (o in locale)
+let riservate = null;            // il file cifrato
+let sbloccato = false;           // true = carte riservate aperte e aggiunte al mazzo
+let catRiservate = [];           // id delle loro categorie
+let pannelloSblocco = false;     // true = nel mazzo c'è il riquadro della password
+const daB64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const inB64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
+// minuscole, solo lettere e numeri: vanno bene anche maiuscole, spazi o niente trattini
+const normalizza = pw => String(pw).toLowerCase().replace(/[^a-z0-9]/g, "");
+
+async function scaricaRiservate(){
+  try {
+    riservate = await fetch("private.enc.json?t=" + Date.now(), {cache:"no-store"}).then(r => { if(!r.ok) throw 0; return r.json(); });
+    try { localStorage.setItem(KEY_PRIV, JSON.stringify(riservate)); } catch(e){}
+  } catch(e){
+    try { riservate = JSON.parse(localStorage.getItem(KEY_PRIV)); } catch(e2){}
+  }
+}
+async function chiaveDaPassword(pw){
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(normalizza(pw)), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({name:"PBKDF2", hash:"SHA-256", salt:daB64(riservate.salt), iterations:riservate.iter},
+    base, {name:"AES-GCM", length:256}, true, ["decrypt"]);
+}
+async function decifra(chiave){
+  const chiaro = await crypto.subtle.decrypt({name:"AES-GCM", iv:daB64(riservate.iv)}, chiave, daB64(riservate.ct));
+  return JSON.parse(new TextDecoder().decode(chiaro));
+}
+// aggiunge le carte riservate al mazzo: le loro categorie vanno per prime
+function unisci(d){
+  if(sbloccato) return;
+  catRiservate = d.categorie.map(c => c.id);
+  categorie = d.categorie.concat(categorie);
+  carte = carte.concat(d.carte);
+  perId = new Map(carte.map(c => [c.id, c]));
+  sbloccato = true;
+}
+async function sbloccaConChiaveSalvata(){
+  let raw = null;
+  try { raw = localStorage.getItem(KEY_CHIAVE); } catch(e){}
+  if(!raw || !riservate) return;
+  try {
+    const chiave = await crypto.subtle.importKey("raw", daB64(raw), "AES-GCM", false, ["decrypt"]);
+    unisci(await decifra(chiave));
+  } catch(e){
+    // la chiave non apre più il file (password cambiata): si chiederà di nuovo la password
+    try { localStorage.removeItem(KEY_CHIAVE); } catch(e2){}
+  }
+}
+async function sbloccaConPassword(pw){
+  if(!riservate) await scaricaRiservate();
+  if(!riservate) throw new Error("rete");
+  const chiave = await chiaveDaPassword(pw);
+  const d = await decifra(chiave);                       // con la password sbagliata qui c'è un errore
+  try { localStorage.setItem(KEY_CHIAVE, inB64(await crypto.subtle.exportKey("raw", chiave))); } catch(e){}
+  unisci(d);
+}
+function sbloccoHTML(){
+  return `<form class="empty-state sblocco" id="f-sblocco">
+    <div><b>🔒 Carte riservate</b>Scrivi la password: le carte si aprono su questo dispositivo e restano aperte.</div>
+    <input type="password" id="pw" name="password" autocomplete="current-password" autocapitalize="off"
+      autocorrect="off" spellcheck="false" placeholder="Password" aria-label="Password">
+    <div class="err" id="pw-err" role="alert"></div>
+    <div class="btns"><button class="btn pri" type="submit" id="b-sblocca">Sblocca</button><button class="btn" type="button" id="b-chiudi">Annulla</button></div>
+  </form>`;
 }
 
 /* =====================================================================
@@ -310,9 +401,12 @@ function giro(){
 const nomeCat = id => categorie.find(c => c.id === id)?.nome || id;
 
 function render(){
-  // categorie
-  $("cats").innerHTML = [{id:"tutte", nome:"Tutte"}].concat(categorie).map(c =>
-    `<button data-c="${c.id}" class="${c.id === state.cat ? "on" : ""}">${esc(c.nome)}</button>`).join("");
+  // categorie (più la pillola 🔒 finché le carte riservate sono bloccate)
+  const pillole = [{id:"tutte", nome:"Tutte"}].concat(categorie).map(c =>
+    `<button data-c="${c.id}" class="${c.id === state.cat && !pannelloSblocco ? "on" : ""}">${esc(c.nome)}</button>`);
+  if(puoCifrare && !sbloccato) pillole.splice(1, 0, `<button data-lock="1" class="${pannelloSblocco ? "on" : ""}">🔒 Riservate</button>`);
+  $("cats").innerHTML = pillole.join("");
+  $("o-blocca").classList.toggle("hidden", !sbloccato);
   // schede con i numeri
   for(const m of Object.keys(MODI)){
     const n = carte.filter(c => qualifica(c, m)).length;
@@ -332,6 +426,13 @@ function render(){
 const dataIt = iso => iso ? iso.split("-").reverse().join("/") : "";
 
 function renderMazzo(){
+  if(pannelloSblocco){                 // al posto delle carte, il riquadro della password
+    ["b-no","b-yes","b-flip"].forEach(b => $(b).disabled = true);
+    $("b-undo").disabled = !storia.length;
+    $("deck").innerHTML = sbloccoHTML();
+    setTimeout(() => $("pw")?.focus(), 60);
+    return;
+  }
   const g = giro();
   lato = "A";
   const [primo, secondo] = g.ids;
@@ -386,9 +487,11 @@ function sezioniHTML(c, nascondi){
   return c.retro.map(s => `<div class="sez"><h4>${f(s.h)}</h4>${
     s.l ? `<ul>${s.l.map(x => `<li>${f(x)}</li>`).join("")}</ul>` : `<p>${f(s.t)}</p>`}</div>`).join("");
 }
+// una fonte senza link (es. appunti) si mostra come testo semplice
 function fontiHTML(c){
-  return `<div class="fonti">Fonti:${c.fonti.map(x =>
-    `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`).join("")}</div>`;
+  return `<div class="fonti">Fonti:${c.fonti.map(x => x.u
+    ? `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>`
+    : `<span>${esc(x.t)}</span>`).join("")}</div>`;
 }
 function badgeHTML(c, pos){
   const st = state.stati[c.id];
@@ -397,7 +500,10 @@ function badgeHTML(c, pos){
   return `<div class="badges"><span class="b cat">${esc(nomeCat(c.cat))}</span>${
     c.tag ? `<span class="b">${esc(c.tag)}</span>` : ""}${stato}${pos ? `<span class="pos">${pos}</span>` : ""}</div>`;
 }
+// la categoria può avere la sua domanda ("inversa" in cards.json o nelle carte riservate)
 function domandaInversa(c){
+  const propria = categorie.find(k => k.id === c.cat)?.inversa;
+  if(propria) return esc(propria);
   return c.cat === "simili" ? "Di quale azienda si parla?"
        : c.cat === "situazioni" ? "Qual era la situazione del prospect?"
        : "Di quale prodotto o concetto si parla?";
@@ -471,6 +577,7 @@ function annulla(){
   if(g && !g.ids.includes(u.id)) g.ids.unshift(u.id);
   const [modo, cat] = u.chiave.split("|");
   state.modo = modo; state.cat = cat;    // torna alla scheda dove era la carta
+  pannelloSblocco = false;
   save(); render();
 }
 
@@ -529,20 +636,46 @@ document.addEventListener("keydown", e => {
    7. CATEGORIE, SCHEDE E OPZIONI
    ===================================================================== */
 $("cats").onclick = e => {
+  if(e.target.closest("[data-lock]")){ pannelloSblocco = !pannelloSblocco; render(); return; }
   const b = e.target.closest("[data-c]"); if(!b) return;
+  pannelloSblocco = false;
   state.cat = b.dataset.c; save(); render();
-  b.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
+  // render ha ridisegnato le pillole: si porta in vista quella nuova
+  $("cats").querySelector(`[data-c="${state.cat}"]`)?.scrollIntoView({block:"nearest", inline:"center", behavior:"smooth"});
 };
 $("tabs").onclick = e => {
   const b = e.target.closest("[data-m]"); if(!b) return;
+  pannelloSblocco = false;
   state.modo = b.dataset.m; save(); render();
 };
-// pulsanti dentro il riquadro "giro finito"
+// pulsanti dentro il riquadro "giro finito" e in quello della password
 $("deck").addEventListener("click", e => {
   const go = e.target.closest("[data-go]"), ng = e.target.closest("[data-giro]");
   if(go){ state.modo = go.dataset.go; nuovoGiro(); render(); }
   else if(ng){ nuovoGiro(); render(); }
+  else if(e.target.closest("#b-chiudi")){ pannelloSblocco = false; render(); }
 });
+// password delle carte riservate
+$("deck").addEventListener("submit", async e => {
+  e.preventDefault();
+  const pw = $("pw").value;
+  if(!normalizza(pw)) return;
+  $("b-sblocca").disabled = true; $("pw-err").textContent = "";
+  try {
+    await sbloccaConPassword(pw);
+    pannelloSblocco = false;
+    state.cat = catRiservate[0]; save(); render();      // si apre subito la prima categoria riservata
+    toast("Carte riservate aperte su questo dispositivo");
+  } catch(err){
+    $("pw-err").textContent = err.message === "rete" ? "Serve la connessione per aprirle la prima volta" : "Password errata";
+    $("b-sblocca").disabled = false; $("pw").select();
+  }
+});
+$("o-blocca").onclick = () => {
+  try { localStorage.removeItem(KEY_CHIAVE); } catch(e){}
+  if(catRiservate.includes(state.cat)){ state.cat = "tutte"; save(); }
+  location.reload();
+};
 $("o-inverti").onchange = e => { state.inverti = e.target.checked; save(); renderMazzo(); };
 $("o-mescola").onclick = () => { nuovoGiro(); render(); toast("Giro rimescolato"); };
 // azzera: serve un secondo tocco entro 4 secondi, per evitare incidenti

@@ -1,0 +1,2 @@
+# testo in chiaro delle carte riservate: non va mai nel repo (va solo private.enc.json, cifrato)
+*.plain.json
