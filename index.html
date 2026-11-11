@@ -225,7 +225,7 @@ footer summary{cursor:pointer;text-align:center;font-weight:600;font-size:12.5px
 /* =====================================================================
    1. IMPOSTAZIONI
    ===================================================================== */
-const VERSIONE = "1.0";            // mostrata in fondo alla pagina; aggiornala a ogni modifica
+const VERSIONE = "1.1";            // mostrata in fondo alla pagina; aggiornala a ogni modifica
 const KEY = "flashcard-salesforce/v1";        // dove si salvano i progressi (localStorage)
 const KEY_CARTE = "flashcard-salesforce/carte"; // copia delle carte per usarle anche senza rete
 const SOGLIA_SWIPE = 90;           // pixel di trascinamento oltre i quali la carta "parte"
@@ -268,6 +268,8 @@ async function caricaCarte(){
   if(!d) throw new Error("carte non disponibili");
   carte = d.carte; categorie = d.categorie; aggiornato = d.aggiornato || "";
   perId = new Map(carte.map(c => [c.id, c]));
+  // se la categoria salvata non esiste più (es. dopo un aggiornamento delle carte) si torna a "Tutte"
+  if(state.cat !== "tutte" && !categorie.some(c => c.id === state.cat)){ state.cat = "tutte"; save(); }
 }
 
 /* =====================================================================
@@ -381,7 +383,7 @@ function maschera(testo, c){
 }
 function sezioniHTML(c, nascondi){
   const f = nascondi ? (t => maschera(t, c)) : esc;
-  return c.retro.map(s => `<div class="sez"><h4>${esc(s.h)}</h4>${
+  return c.retro.map(s => `<div class="sez"><h4>${f(s.h)}</h4>${
     s.l ? `<ul>${s.l.map(x => `<li>${f(x)}</li>`).join("")}</ul>` : `<p>${f(s.t)}</p>`}</div>`).join("");
 }
 function fontiHTML(c){
@@ -396,7 +398,7 @@ function badgeHTML(c, pos){
     c.tag ? `<span class="b">${esc(c.tag)}</span>` : ""}${stato}${pos ? `<span class="pos">${pos}</span>` : ""}</div>`;
 }
 function domandaInversa(c){
-  return c.cat === "estero" || c.cat === "italia" ? "Di quale cliente si parla?"
+  return c.cat === "simili" ? "Di quale azienda si parla?"
        : c.cat === "situazioni" ? "Qual era la situazione del prospect?"
        : "Di quale prodotto o concetto si parla?";
 }

@@ -3,6 +3,10 @@
  "nota": "Prezzi e numeri come pubblicati da Salesforce e fonti indicate su ogni carta; possono cambiare.",
  "categorie": [
   {
+   "id": "simili",
+   "nome": "Simili a Curasept"
+  },
+  {
    "id": "ai",
    "nome": "Piattaforma e AI"
   },
@@ -15,16 +19,12 @@
    "nome": "Settori"
   },
   {
-   "id": "estero",
-   "nome": "Casi esteri"
-  },
-  {
-   "id": "italia",
-   "nome": "Casi Italia"
-  },
-  {
    "id": "situazioni",
    "nome": "Situazioni"
+  },
+  {
+   "id": "azienda",
+   "nome": "Salesforce"
   }
  ],
  "carte": [
@@ -1312,7 +1312,7 @@
     },
     {
      "h": "Clienti",
-     "t": "Oltre 70 organizzazioni, tra cui Pfizer, Takeda, Boehringer Ingelheim e le italiane Menarini e Fidia."
+     "t": "Oltre 70 organizzazioni ad agosto 2025, tra cui Pfizer, Takeda e Boehringer Ingelheim; nel consumer health Haleon e Pierre Fabre; in Italia Chiesi, Menarini e Fidia."
     }
    ],
    "fonti": [
@@ -1323,6 +1323,18 @@
     {
      "t": "Salesforce · chi ha scelto Life Sciences Cloud",
      "u": "https://www.salesforce.com/news/stories/industry-leaders-choose-life-sciences-cloud/"
+    },
+    {
+     "t": "Business Wire · Haleon sceglie Salesforce, ott 2025",
+     "u": "https://www.businesswire.com/news/home/20251008924109/en/Haleon-Selects-Salesforce-Agentforce-Life-Sciences-Cloud-for-Customer-Engagement-to-Improve-Engagement-with-Pharmacies-and-Healthcare-Professionals-with-AI"
+    },
+    {
+     "t": "Salesforce · Pierre Fabre sceglie Agentforce Life Sciences, mag 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/05/21/pierre-fabre-agentforce-life-sciences-customer-engagement/"
+    },
+    {
+     "t": "Salesforce · Chiesi sceglie Agentforce Life Sciences, apr 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/04/20/chiesi-group-agentforce-life-sciences-transforms-customer-engagement/"
     }
    ]
   },
@@ -1352,13 +1364,17 @@
     },
     {
      "h": "Clienti",
-     "t": "PepsiCo, L'Oréal, Molson Coors, YETI."
+     "t": "PepsiCo, L'Oréal, Molson Coors, YETI; nel mondo salute Sigvaris, che vende anche in farmacia."
     }
    ],
    "fonti": [
     {
      "t": "Salesforce · Consumer Goods",
      "u": "https://www.salesforce.com/consumer-goods/"
+    },
+    {
+     "t": "Salesforce · Sigvaris Group, mar 2026",
+     "u": "https://www.salesforce.com/eu/blog/trailblazer-sigvaris-group/"
     }
    ]
   },
@@ -1491,316 +1507,533 @@
    ]
   },
   {
-   "id": "siemens",
-   "cat": "estero",
-   "tag": "Industria · Germania",
-   "fronte": "Siemens: come qualifica i lead in entrata con Agentforce?",
-   "nome": "Siemens",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Problema",
-     "t": "Migliaia di lead non qualificati al mese, da download e fiere. I venditori, spesso ingegneri, dovevano verificare budget, autorità, bisogno e tempi (BANT) uno per uno."
-    },
-    {
-     "h": "Soluzione",
-     "t": "Un agente scrive entro pochi minuti e fa fino a due follow-up; un secondo agente chatta con il prospect, chiede il BANT e salva le risposte in Sales Cloud. Con almeno due risposte positive il lead va a un venditore con un riassunto."
-    },
-    {
-     "h": "Risultati",
-     "l": [
-      "Risposta ai lead: da giorni a minuti",
-      "Circa 2.500 lead al mese coperti al 100%, in 132 paesi",
-      "80% delle interazioni valutate buone o molto buone",
-      "Agente per oltre 14.500 partner costruito in 6 settimane"
-     ]
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "È il caso più vicino al lavoro del BDR: qualifica strutturata, con regole chiare."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · caso Siemens",
-     "u": "https://www.salesforce.com/customer-stories/siemens/agentic-sales-leads"
-    }
-   ]
-  },
-  {
-   "id": "saastr",
-   "cat": "estero",
-   "tag": "Media ed eventi · USA",
-   "fronte": "SaaStr: come ha trasformato lead dimenticati in fatturato?",
-   "nome": "SaaStr",
+   "id": "curasept",
+   "cat": "simili",
+   "tag": "Il prospect · Italia",
+   "fronte": "Curasept: chi è e come vende?",
+   "nome": "Curasept",
    "alias": [
-    "Hexi"
+    "Giovannardi",
+    "Normon"
    ],
    "retro": [
     {
-     "h": "Problema",
-     "t": "Circa 1.000 prospect interessati (sponsorizzazioni, biglietti) mai ricontattati: i commerciali seguivano solo i contratti più grandi. L'azienda ha tre dipendenti."
+     "h": "In breve",
+     "t": "Media impresa familiare di Saronno, nata nel 2001, specializzata in salute orale: collutori alla clorexidina senza alcol e altri prodotti per l'igiene orale, ora anche integratori."
     },
     {
-     "h": "Soluzione",
-     "t": "Un agente di vendita, Hexi, scrive email personalizzate con storico CRM e comportamento sul sito, fa follow-up in base al fuso orario e passa i lead di valore alle persone. Limiti chiari: niente appuntamenti, niente prezzi sotto una soglia minima, niente promesse di interventi sul palco."
-    },
-    {
-     "h": "Risultati",
+     "h": "Numeri",
      "l": [
-      "72% di apertura, oltre 10% di risposta",
-      "2,7 milioni di dollari di fatturato in più e 3,5 milioni di pipeline",
-      "Online in tre settimane"
+      "Fatturato da 42 a 50 milioni di euro tra il 2023 e il 2025, obiettivo 100",
+      "Presente in 45 paesi, obiettivo 60 entro il 2032",
+      "Oltre il 10% del fatturato in ricerca e sviluppo"
      ]
     },
     {
-     "h": "Perché citarlo",
-     "t": "Dimostra che il database «dormiente» è pipeline nascosta."
+     "h": "Come lavora",
+     "l": [
+      "Con dentisti, igienisti e farmacisti, per diffondere tecniche e strumenti di igiene orale",
+      "In farmacia punta sul consiglio: formazione ai farmacisti e una nuova linea di integratori per la salute orale",
+      "All'estero con partner: in Spagna e Portogallo un co-branding con Normon"
+     ]
+    },
+    {
+     "h": "Cosa dice Stefano Giovannardi, presidente e CEO (giugno 2026)",
+     "l": [
+      "La prevenzione è un investimento, non un costo",
+      "Impresa, università e istituzioni hanno ruoli complementari",
+      "L'AI è un supporto alle persone, non un sostituto",
+      "Obiettivi: crescita internazionale, ricerca e innovazione"
+     ]
+    },
+    {
+     "h": "Da scoprire in call",
+     "t": "Come è organizzata la rete sul campo e quale CRM usano oggi: non ci sono fonti pubbliche."
     }
    ],
    "fonti": [
     {
-     "t": "Salesforce · caso SaaStr",
-     "u": "https://www.salesforce.com/customer-stories/saastr-ai/agentic-outreach"
+     "t": "SaronnoNews · Curasept e Normon, ott 2025",
+     "u": "https://www.saronnonews.it/2025/10/24/made-in-italy-della-salute-orale-curasept-di-saronno-sceglie-la-spagnola-normon-per-crescere-nel-mondo/"
+    },
+    {
+     "t": "SaronnoNews · i 25 anni di Curasept, giu 2026",
+     "u": "https://www.saronnonews.it/2026/06/28/cura-la-bocca-se-vuoi-vivere-meglio-e-piu-a-lungo-il-messaggio-della-curasept-di-saronno-per-i-suoi-25-anni/"
+    },
+    {
+     "t": "Dental Tribune · Curasept compie 25 anni, giu 2026",
+     "u": "https://www.dental-tribune.com/news/curasept-marks-25th-anniversary-with-oral-health-initiatives/"
+    },
+    {
+     "t": "Dental Tribune · Curasept nel mondo, mag 2025",
+     "u": "https://www.dental-tribune.com/news/curasept-pioneering-preventive-oral-health-on-a-global-scale/"
+    },
+    {
+     "t": "Curasept · comunicato per Cosmofarma, mag 2026",
+     "u": "https://wordpress-senaf-cosmofarma.s3.eu-central-1.amazonaws.com/2026/05/CS_Curasept-Cosmofarma-2026.pdf"
     }
    ]
   },
   {
-   "id": "takeda",
-   "cat": "estero",
-   "tag": "Farmaceutico · Giappone",
-   "fronte": "Takeda: come usa Agentforce per le domande dei medici?",
-   "nome": "Takeda",
+   "id": "haleon",
+   "cat": "simili",
+   "tag": "Consumer health · Regno Unito",
+   "fronte": "Haleon (Sensodyne, parodontax): cosa ha scelto e per fare cosa?",
+   "nome": "Haleon",
    "alias": [
-    "SEIMEI",
-    "AIMI"
+    "Sensodyne",
+    "parodontax",
+    "Polident"
    ],
+   "retro": [
+    {
+     "h": "Perché è simile",
+     "t": "Salute orale e consumer health venduti in farmacia, con una forza vendita che lavora con farmacisti e operatori sanitari. È il caso più vicino a Curasept, ma su scala globale."
+    },
+    {
+     "h": "Soluzione (ottobre 2025)",
+     "t": "Life Sciences Cloud for Customer Engagement, Data Cloud (oggi Data 360) e Agentforce per una forza vendita di 4.500 persone nel mondo."
+    },
+    {
+     "h": "Obiettivi",
+     "l": [
+      "Meno lavoro amministrativo per chi è sul campo",
+      "Dati su consumatori, trend d'acquisto e marketing nel punto vendita",
+      "Più tempo per piani di attivazione su misura per ogni cliente"
+     ]
+    },
+    {
+     "h": "In più",
+     "t": "Haleon aiuta Salesforce a costruire le funzioni per il consumer health: disponibilità dei prodotti, scadenze, promozioni e scorte. La gestione degli ordini è prevista da ottobre 2026."
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Uno dei più grandi gruppi di consumer health, con marchi di salute orale, ha scelto Salesforce per lo stesso modello di Curasept: farmacia più consiglio del professionista."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Business Wire · Haleon sceglie Salesforce, ott 2025",
+     "u": "https://www.businesswire.com/news/home/20251008924109/en/Haleon-Selects-Salesforce-Agentforce-Life-Sciences-Cloud-for-Customer-Engagement-to-Improve-Engagement-with-Pharmacies-and-Healthcare-Professionals-with-AI"
+    }
+   ]
+  },
+  {
+   "id": "pierre-fabre",
+   "cat": "simili",
+   "tag": "Dermocosmesi · Francia",
+   "fronte": "Pierre Fabre: perché ha scelto un unico CRM?",
+   "nome": "Pierre Fabre",
+   "alias": [
+    "Avène",
+    "Klorane",
+    "Elgydium"
+   ],
+   "retro": [
+    {
+     "h": "Perché è simile",
+     "t": "Dermocosmesi venduta in farmacia e consigliata dai medici (Avène, Klorane, e per l'igiene orale Elgydium), più il farmaco con ricetta."
+    },
+    {
+     "h": "Problema",
+     "t": "Farmaco e dermocosmesi lavoravano separati: rapporti con medici, opinion leader e farmacie poco coordinati, troppo lavoro amministrativo sul campo, ordini con regole diverse in ogni paese."
+    },
+    {
+     "h": "Soluzione (maggio 2026)",
+     "t": "Agentforce Life Sciences for Customer Engagement come «One CRM» per oltre 4.000 utenti, con Data 360 e Agentforce Marketing."
+    },
+    {
+     "h": "Cosa copre",
+     "l": [
+      "Preparazione, coaching e registrazione delle visite ai medici",
+      "Sell-in, sell-out e attività nel punto vendita: sconti, voucher, rebate",
+      "Ordini automatici con le regole e i prezzi di ogni paese"
+     ]
+    },
+    {
+     "h": "Obiettivo",
+     "t": "Soddisfazione dei medici fino al 20% in più."
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Stesso doppio canale di Curasept, professionista e farmacia, e vendite in molti paesi con regole diverse."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Pierre Fabre sceglie Agentforce Life Sciences, mag 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/05/21/pierre-fabre-agentforce-life-sciences-customer-engagement/"
+    }
+   ]
+  },
+  {
+   "id": "chiesi",
+   "cat": "simili",
+   "tag": "Farmaceutico · Italia",
+   "fronte": "Chiesi: cosa fa Agentforce per i suoi informatori?",
+   "nome": "Chiesi",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Perché è simile",
+     "t": "Azienda italiana di famiglia, alla terza generazione, con informatori che seguono medici, ospedali e farmacie, e un forte export: oltre 100 paesi."
+    },
+    {
+     "h": "Soluzione (aprile 2026)",
+     "t": "Agentforce Life Sciences for Customer Engagement per 3.300 utenti."
+    },
+    {
+     "h": "Cosa copre",
+     "l": [
+      "Data 360: una vista unica di medici, ospedali e farmacie",
+      "Agentforce: suggerimenti e riassunti per preparare le visite, bozze delle note, pianificazione dei cicli di visita",
+      "Agentforce Marketing: campagne multicanale ed eventi",
+      "Requisito: piena conformità alle norme farmaceutiche e sulla privacy"
+     ]
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Esempio italiano, familiare e internazionale: l'AI entra nel lavoro degli informatori in modo graduale e controllato."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Chiesi sceglie Agentforce Life Sciences, apr 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/04/20/chiesi-group-agentforce-life-sciences-transforms-customer-engagement/"
+    }
+   ]
+  },
+  {
+   "id": "fidia-menarini",
+   "cat": "simili",
+   "tag": "Farmaceutico · Italia",
+   "fronte": "Fidia e Menarini: cosa fanno con Life Sciences Cloud?",
+   "nome": "Fidia",
+   "alias": [
+    "Menarini",
+    "Fidia Farmaceutici",
+    "Fidia Pharma"
+   ],
+   "retro": [
+    {
+     "h": "Cosa fanno",
+     "l": [
+      "Fidia: unisce il rapporto con i medici e il ciclo dal preventivo all'ordine su un'unica piattaforma conforme, con Data Cloud, come base per l'omnicanale e per gli insight con l'AI (Emanuele Peron, CIO)",
+      "Menarini: personalizzazione con l'AI e rapporto omnicanale con i medici (Germano D'Amore, operazioni vendite e customer engagement globali)"
+     ]
+    },
+    {
+     "h": "Perché sono simili",
+     "t": "Aziende farmaceutiche italiane con informatori, tra le oltre 70 organizzazioni che hanno scelto Life Sciences Cloud."
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Il settore salute italiano si sta già spostando su Life Sciences Cloud: per Curasept non sarebbe un salto nel buio."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · chi ha scelto Life Sciences Cloud",
+     "u": "https://www.salesforce.com/news/stories/industry-leaders-choose-life-sciences-cloud/"
+    },
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    }
+   ]
+  },
+  {
+   "id": "bayer",
+   "cat": "simili",
+   "tag": "Consumer health · Germania",
+   "fronte": "Bayer Consumer Health: come ha moltiplicato i contatti con i medici?",
+   "nome": "Bayer",
+   "alias": [],
    "retro": [
     {
      "h": "Problema",
-     "t": "Domande complesse dei medici su farmaci e controindicazioni: il team di informazione medica cercava le fonti e scriveva le risposte a mano."
+     "t": "Gli informatori lavoravano quasi solo con la visita di persona; dopo il Covid servivano contatti digitali, e il vecchio CRM non collegava i dati."
     },
     {
      "h": "Soluzione",
-     "t": "Due agenti: uno sintetizza letteratura clinica e documenti interni, l'altro propone risposte con le fonti. Un professionista medico approva sempre prima dell'invio. Usa Life Sciences Cloud, Data 360 e MuleSoft."
+     "t": "Sales Cloud per i dati dei clienti, Marketing Cloud per inviare in digitale inviti a eventi e nuovi studi, Einstein per scegliere oggetto e orario delle email. Pilota a fine 2020 in tre città dell'Est Europa, poi esteso a tutto il paese per un marchio."
     },
     {
      "h": "Risultati",
      "l": [
-      "Oltre 25.000 richieste di medici gestite con Agentforce",
-      "Oltre 3.100 documenti medici regolati caricati",
-      "8.000 richieste non mediche gestite (ordini, prezzi, programmi per i pazienti)"
+      "Contatti digitali per medico al mese: +400%",
+      "In media 4 contatti per medico al mese",
+      "Apertura delle email oltre il 20%, clic oltre il 3%"
      ]
     },
     {
-     "h": "Perché citarlo",
-     "t": "Per il farmaceutico: AI con controllo umano e fonti verificabili."
+     "h": "Come usarlo",
+     "t": "Consumer health come Curasept: il professionista riceve il contenuto scientifico giusto al momento giusto, anche tra una visita e l'altra."
     }
    ],
    "fonti": [
     {
-     "t": "Salesforce · caso Takeda",
-     "u": "https://www.salesforce.com/customer-stories/takeda"
+     "t": "Salesforce · caso Bayer Consumer Health",
+     "u": "https://www.salesforce.com/eu/customer-stories/bayer/"
     }
    ]
   },
   {
-   "id": "loreal",
-   "cat": "estero",
-   "tag": "Beauty · Francia",
-   "fronte": "L'Oréal: come velocizza il servizio clienti?",
-   "nome": "L'Oréal",
+   "id": "sigvaris",
+   "cat": "simili",
+   "tag": "Medicale · Svizzera",
+   "fronte": "Sigvaris: com'è partita un'azienda medicale che vende in farmacia?",
+   "nome": "Sigvaris",
    "alias": [],
    "retro": [
+    {
+     "h": "Chi è",
+     "t": "Indumenti a compressione medicale, oltre 160 anni di storia, 12 mercati. Vende tramite farmacie, negozi specializzati, ospedali, distributori ed e-commerce."
+    },
     {
      "h": "Problema",
-     "t": "Attività ripetitive rallentavano gli operatori: un codice sconto richiedeva circa 10 minuti e 15 schermate."
+     "t": "Le informazioni sui clienti (preferenze, misure, richieste) restavano nelle visite di persona e non erano visibili a tutti, con modelli di vendita diversi da paese a paese."
     },
     {
      "h": "Soluzione",
-     "t": "Agentforce dentro Service Cloud riassume i casi, prepara risposte nel tono del brand e genera i codici promozionali da una richiesta semplice."
+     "t": "Consumer Goods Cloud come unico CRM. Prossimo passo: l'app mobile per dettare le note tra una visita e l'altra e Salesforce Maps per il percorso più veloce."
     },
     {
-     "h": "Risultati",
+     "h": "Numeri",
      "l": [
-      "Casi gestiti il 64% più velocemente (da circa 7 a 2,5 minuti) quando la bozza va bene così",
-      "Codici promozionali il 90% più veloci",
-      "Adozione al 100%: oltre 300 operatori lo usano ogni giorno, su 25 brand"
+      "Online in 4 mesi in Svizzera, poi Canada e gli altri mercati",
+      "Circa 500 utenti previsti",
+      "1 ora risparmiata a persona a settimana, togliendo due passaggi da un processo"
      ]
     },
     {
-     "h": "Perché citarlo",
-     "t": "Mostra l'AI che aiuta le persone, non solo il bot che risponde ai clienti."
+     "h": "Come usarlo",
+     "t": "Azienda specializzata in salute che vende in farmacia in più paesi: si parte da un mercato e poi si estende."
     }
    ],
    "fonti": [
     {
-     "t": "Salesforce · caso L'Oréal",
-     "u": "https://www.salesforce.com/customer-stories/loreal/agentic-service-advisor-assistance"
+     "t": "Salesforce · Sigvaris Group, mar 2026",
+     "u": "https://www.salesforce.com/eu/blog/trailblazer-sigvaris-group/"
     }
    ]
   },
   {
-   "id": "fifa",
-   "cat": "estero",
-   "tag": "Sport · Internazionale",
-   "fronte": "FIFA: cosa ha fatto con Agentforce per i Mondiali 2026?",
-   "nome": "FIFA",
+   "id": "isdin",
+   "cat": "simili",
+   "tag": "Dermocosmesi · Spagna",
+   "fronte": "ISDIN: cosa è migliorato nel servizio clienti?",
+   "nome": "ISDIN",
    "alias": [],
    "retro": [
+    {
+     "h": "Perché è simile",
+     "t": "Dermocosmesi spagnola venduta in farmacia, presente in molti paesi."
+    },
     {
      "h": "Soluzione",
-     "t": "Due agenti hanno seguito i giornalisti dalla prima domanda fino all'accredito; Slack ha coordinato i volontari."
+     "t": "Service Cloud per le richieste di aziende e consumatori su WhatsApp, Apple Messages, Messenger e chat, in oltre 15 paesi e più di 5 lingue; bot che raccolgono le informazioni e passano all'operatore."
     },
     {
      "h": "Risultati",
      "l": [
-      "85% delle domande frequenti risolte in autonomia nei primi 45 giorni",
-      "Torneo da 104 partite, 16 città in 3 paesi, 48 squadre"
+      "Tempo di risoluzione -35%",
+      "Tempo di prima risposta migliorato del 42%",
+      "Soddisfazione dei clienti +28%",
+      "Casi passati a un livello superiore -23%"
      ]
     },
     {
-     "h": "Perché citarlo",
-     "t": "Caso che tutti conoscono: grandi volumi concentrati in poco tempo."
+     "h": "Attenzione",
+     "t": "Fonte: l'agenzia partner che ha fatto il progetto, non Salesforce; nessuna data."
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Con 45 paesi, farmacie, professionisti e consumatori scrivono su canali e in lingue diverse."
     }
    ],
    "fonti": [
     {
-     "t": "Salesforce · caso FIFA",
-     "u": "https://www.salesforce.com/customer-stories/fifa"
+     "t": "WAM (partner) · progetto ISDIN",
+     "u": "https://wam.global/work/isdin/"
     }
    ]
   },
   {
-   "id": "reddit",
-   "cat": "estero",
-   "tag": "Tecnologia · USA",
-   "fronte": "Reddit: che risultati ha ottenuto nell'assistenza?",
-   "nome": "Reddit",
+   "id": "uriach",
+   "cat": "simili",
+   "tag": "Farmaceutico · Spagna",
+   "fronte": "Uriach: come lavorano insieme informatori e venditori in farmacia?",
+   "nome": "Uriach",
    "alias": [],
    "retro": [
+    {
+     "h": "Chi è",
+     "t": "Azienda farmaceutica spagnola che lavora sia con i medici sia con le farmacie."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Un CRM su Salesforce, fatto con il partner VISEO: informatori medici, venditori in farmacia e auditor del punto vendita condividono le stesse informazioni."
+    },
+    {
+     "h": "Cosa cambia",
+     "l": [
+      "L'informatore vede dati del medico, eventi a cui ha partecipato e feedback, e prepara visite su misura",
+      "Il marketing usa gli stessi dati per le attività promozionali",
+      "Accanto alle visite di persona, incontri online con medici e farmacisti insieme"
+     ]
+    },
+    {
+     "h": "Attenzione",
+     "t": "Testimonianza pubblicata dal partner, senza data precisa (circa 2021) e senza numeri di risultato."
+    },
+    {
+     "h": "Come usarlo",
+     "t": "È lo schema di Curasept, con informatori che visitano professionisti e farmacie: tutti lavorano sulla stessa storia del cliente."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "VISEO (partner) · testimonianza Uriach",
+     "u": "https://iberia.viseo.com/wp-content/uploads/sites/3/2025/09/42c3817c-d207-4f71-89df-8bd0ee7bbda3-TestimoniodeURIACHComodigitalizarlaactividadcomercialenFarma.pdf"
+    }
+   ]
+  },
+  {
+   "id": "adamed",
+   "cat": "simili",
+   "tag": "Farmaceutico · Spagna",
+   "fronte": "Adamed Laboratorios: cosa usano gli informatori in Spagna?",
+   "nome": "Adamed",
+   "alias": [
+    "Adamed Laboratorios"
+   ],
+   "retro": [
+    {
+     "h": "Chi è",
+     "t": "La filiale spagnola del gruppo farmaceutico polacco Adamed, farmaci con ricetta."
+    },
+    {
+     "h": "Soluzione (gennaio 2026)",
+     "t": "Agentforce Life Sciences for Customer Engagement, con Data 360 e MuleSoft collegati in tempo reale all'anagrafica dei medici IQVIA OneKey."
+    },
+    {
+     "h": "Cosa fanno gli informatori",
+     "l": [
+      "Report delle visite e pianificazione dei cicli",
+      "Presentazioni multimediali durante la visita (e-detailing) ed eventi",
+      "App che funziona anche offline",
+      "Vista unica di visite, eventi e ordini su professionisti, ospedali e farmacie"
+     ]
+    },
+    {
+     "h": "In più",
+     "l": [
+      "Agentforce suggerisce la prossima azione da fare",
+      "Email e SMS con Agentforce Marketing; Tableau per consegne e prezzi"
+     ]
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Si parte da un solo paese e l'estensione internazionale viene dopo. Nessun risultato ancora pubblicato."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Adamed Laboratorios, gen 2026",
+     "u": "https://www.salesforce.com/ap/news/stories/adamed-laboratorios-agentforce-life-sciences-power-commercial-growth/"
+    }
+   ]
+  },
+  {
+   "id": "align",
+   "cat": "simili",
+   "tag": "Dentale · USA",
+   "fronte": "Align (Invisalign): come usa Salesforce con i dentisti?",
+   "nome": "Align",
+   "alias": [
+    "Invisalign",
+    "Align Technology"
+   ],
+   "retro": [
+    {
+     "h": "Perché è simile",
+     "t": "Vende a dentisti e ortodontisti con una forza vendita dedicata: è il professionista che porta il prodotto al paziente."
+    },
+    {
+     "h": "Soluzione (dal 2018)",
+     "l": [
+      "App per i venditori che gestiscono il rapporto con i dottori Invisalign, con l'AI di Einstein prevista per suggerimenti e inserimento automatico dei dati",
+      "Portale per i dottori: seguono i pazienti e fanno gli ordini",
+      "App per i pazienti, per seguire il trattamento",
+      "Tutto su Sales Cloud, Service Cloud e Health Cloud"
+     ]
+    },
+    {
+     "h": "Numero",
+     "t": "Oltre 5,8 milioni di persone trattate con Invisalign nel 2018: è la dimensione, non un risultato del progetto."
+    },
+    {
+     "h": "Come usarlo",
+     "t": "Esempio dal mondo dentale: venditori, professionisti e pazienti collegati sulla stessa piattaforma."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · comunicato Align Technology, set 2018",
+     "u": "https://www.salesforce.com/news/press-releases/2018/09/13/align-technology-expands-use-of-salesforce-leveraging-einstein-analytics-to-drive-continued-innovation-and-enhanced-customer-experiences-with-invisalign-treatment"
+    }
+   ]
+  },
+  {
+   "id": "dental-cremer",
+   "cat": "simili",
+   "tag": "Dentale · Brasile",
+   "fronte": "Dental Cremer: cosa ha ottenuto con Marketing Cloud verso i dentisti?",
+   "nome": "Dental Cremer",
+   "alias": [
+    "Cremer",
+    "Henry Schein"
+   ],
+   "retro": [
+    {
+     "h": "Chi è",
+     "t": "Distributore brasiliano di prodotti per dentisti, del gruppo Henry Schein, con circa 300.000 clienti."
+    },
+    {
+     "h": "Problema",
+     "t": "Segmentazione fatta con tanti fogli Excel e liste costruite a mano."
+    },
+    {
+     "h": "Soluzione",
+     "t": "Marketing Cloud con percorsi su misura per ogni profilo di cliente: oltre 100 campagne automatiche al giorno."
+    },
     {
      "h": "Risultati",
      "l": [
-      "46% dei casi di supporto risolti senza operatore",
-      "Tempo medio di risposta da 8,9 a 1,4 minuti"
+      "Apertura delle email +144%",
+      "Clienti che interagiscono ogni giorno con le email +90%"
      ]
     },
     {
-     "h": "Perché citarlo",
-     "t": "Numeri semplici e forti sul tempo di risposta."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
-     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
-    }
-   ]
-  },
-  {
-   "id": "opentable",
-   "cat": "estero",
-   "tag": "Ristorazione · USA",
-   "fronte": "OpenTable: quanto risolve da solo l'agente?",
-   "nome": "OpenTable",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Risultato",
-     "t": "Il 70% delle richieste di clienti e ristoranti risolte in autonomia."
+     "h": "Attenzione",
+     "t": "Storia del 2019; nel sottotitolo la pagina parla di apertura «quadruplicata», nel testo di +144%."
     },
     {
-     "h": "Perché citarlo",
-     "t": "Due tipi di utenti, chi prenota e chi gestisce il ristorante, serviti dallo stesso agente."
+     "h": "Come usarlo",
+     "t": "Comunicazione continua e personalizzata con migliaia di studi dentistici, senza costruire le liste a mano."
     }
    ],
    "fonti": [
     {
-     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
-     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
-    }
-   ]
-  },
-  {
-   "id": "engine",
-   "cat": "estero",
-   "tag": "Viaggi d'affari · USA",
-   "fronte": "Engine: quanto ha risparmiato?",
-   "nome": "Engine",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Risultati",
-     "l": [
-      "Tempo di gestione dei casi ridotto del 15%",
-      "Oltre 2 milioni di dollari risparmiati all'anno",
-      "Gestisce oltre 800.000 richieste di clienti all'anno e usa anche Slackforce"
-     ]
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
-     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
-    },
-    {
-     "t": "Salesforce · comunicato AIforce, set 2026",
-     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
-    }
-   ]
-  },
-  {
-   "id": "1800accountant",
-   "cat": "estero",
-   "tag": "Servizi fiscali · USA",
-   "fronte": "1-800Accountant: cosa è successo nella settimana delle tasse?",
-   "nome": "1-800Accountant",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Risultato",
-     "t": "Il 90% dei casi risolti senza operatore proprio nella settimana di picco delle dichiarazioni."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Per chi ha picchi stagionali: l'agente assorbe il picco senza personale temporaneo."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
-     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
-    }
-   ]
-  },
-  {
-   "id": "adecco",
-   "cat": "estero",
-   "tag": "Risorse umane · Svizzera",
-   "fronte": "Adecco: perché l'agente conta anche fuori orario?",
-   "nome": "Adecco",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Risultato",
-     "t": "L'agente ha gestito il 51% delle conversazioni con i candidati fuori dall'orario di lavoro."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Clienti e candidati scrivono la sera e nel weekend: l'agente c'è sempre."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
-     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+     "t": "Salesforce · caso Dental Cremer",
+     "u": "https://www.salesforce.com/br/customer-success-stories/dental-cremer/"
     }
    ]
   },
   {
    "id": "customer-zero",
-   "cat": "estero",
+   "cat": "azienda",
    "tag": "Salesforce · USA",
    "fronte": "Customer Zero: come usa Salesforce Agentforce su se stessa?",
    "nome": "Customer Zero",
@@ -1831,332 +2064,8 @@
    ]
   },
   {
-   "id": "fulton",
-   "cat": "estero",
-   "tag": "Banca · USA",
-   "fronte": "Fulton Bank: quanto è stata veloce l'adozione di Agentforce Coworker?",
-   "nome": "Fulton Bank",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Risultato",
-     "t": "Da zero a oltre 20 casi d'uso in produzione in poche settimane, per circa 3.000 utenti."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Settore regolato, adozione rapida perché Coworker usa i permessi già esistenti."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · comunicato AIforce, set 2026",
-     "u": "https://www.salesforce.com/ap/news/press-releases/2026/09/16/sg-salesforce-unveils-aiforce-bringing-the-full-power-of-its-platform-to-any-interface/"
-    }
-   ]
-  },
-  {
-   "id": "telepass",
-   "cat": "italia",
-   "tag": "Mobilità · Italia",
-   "fronte": "Telepass: cosa ha fatto con Agentforce e con quali risultati?",
-   "nome": "Telepass",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Problema",
-     "t": "Circa 2 milioni di richieste telefoniche e 900.000 chat l'anno, dati sparsi in 62 database esterni; il vecchio chatbot passava agli operatori oltre metà delle richieste e il servizio era attivo solo dalle 8 alle 19."
-    },
-    {
-     "h": "Soluzione",
-     "t": "Un agente in chat per le domande frequenti (fatture, contratti, targhe) che passa all'operatore con il contesto; dati unificati con Data 360 e MuleSoft."
-    },
-    {
-     "h": "Risultati",
-     "l": [
-      "87% delle richieste risolte in autonomia",
-      "40.000 conversazioni a settimana",
-      "Gestione delle chiamate più veloce del 50%",
-      "Online in sei settimane, ritorno dell'investimento entro 10",
-      "Ingresso di nuovi partner: da circa 3 mesi a 1-2 settimane"
-     ]
-    },
-    {
-     "h": "Attenzione",
-     "t": "Nel comunicato di giugno 2026 Salesforce parla di 84% di richieste automatizzate: i due numeri vengono da fonti diverse."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Il caso italiano più forte: grandi numeri e tempi rapidi."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · caso Telepass",
-     "u": "https://www.salesforce.com/customer-stories/telepass/"
-    },
-    {
-     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
-     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
-    }
-   ]
-  },
-  {
-   "id": "euronics",
-   "cat": "italia",
-   "tag": "Retail · Italia",
-   "fronte": "Euronics Italia: cosa fa l'agente «Ronics»?",
-   "nome": "Euronics",
-   "alias": [
-    "Ronics"
-   ],
-   "retro": [
-    {
-     "h": "Problema",
-     "t": "Portare online la competenza dei commessi: i clienti si aspettano un e-commerce comodo come quello dei grandi player."
-    },
-    {
-     "h": "Soluzione",
-     "t": "L'agente Ronics aiuta a scegliere e confrontare i grandi elettrodomestici e li mette nel carrello, usando 26.000 prodotti in Data 360. In più Agentforce Commerce, Marketing e Service Cloud."
-    },
-    {
-     "h": "Risultati",
-     "l": [
-      "Conversione +53% grazie all'agente",
-      "7% di clic sui prodotti suggeriti",
-      "Vendite online +13%",
-      "In produzione in 15 settimane"
-     ]
-    },
-    {
-     "h": "Attenzione",
-     "t": "La descrizione breve della pagina riporta numeri più bassi (+4% conversione, +3% vendite): questi sono quelli del testo dell'articolo."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Retail con negozi: unisce consiglio esperto, online e ritiro in negozio."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · caso Euronics Italia",
-     "u": "https://www.salesforce.com/customer-stories/euronics-italia/"
-    }
-   ]
-  },
-  {
-   "id": "moneyfarm",
-   "cat": "italia",
-   "tag": "Fintech · Italia e UK",
-   "fronte": "Moneyfarm: come usa Agentforce nell'assistenza agli investitori?",
-   "nome": "Moneyfarm",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Problema",
-     "t": "Molti investitori da guidare e tante interazioni; il vecchio chatbot seguiva menu predefiniti."
-    },
-    {
-     "h": "Soluzione",
-     "t": "Agente in chat che risponde alle domande frequenti e passa a un consulente con il riassunto. Creato in pochi giorni senza codice. Prossimi passi: voce e dati del singolo cliente."
-    },
-    {
-     "h": "Risultati",
-     "l": [
-      "30% delle chat gestite da Agentforce nei primi mesi",
-      "25% risolte senza consulente",
-      "Circa 3.000 conversazioni al mese, 25 ore al mese risparmiate"
-     ]
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Finanza regolata e approccio graduale: si parte dalle FAQ e poi si allarga."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · caso Moneyfarm",
-     "u": "https://www.salesforce.com/it/customer-stories/moneyfarm/"
-    }
-   ]
-  },
-  {
-   "id": "trenitalia",
-   "cat": "italia",
-   "tag": "Trasporti · Italia",
-   "fronte": "Trenitalia: per cosa usa Agentforce?",
-   "nome": "Trenitalia",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Soluzione",
-     "t": "Agenti Agentforce a supporto di vendite e assistenza; in sperimentazione anche il servizio clienti via WhatsApp."
-    },
-    {
-     "h": "Contesto",
-     "t": "Oltre 500 milioni di passeggeri l'anno: è la dimensione dell'azienda, non un risultato del progetto."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Nome noto a tutti in Italia, presentato all'Agentforce World Tour di Milano a giugno 2026."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce Italia · World Tour Milano, 11 giu 2026",
-     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/11/da-sperimentazione-a-trasformazione-salesforce-riunisce-a-milano-le-imprese-che-hanno-scelto-lai-agentica/"
-    },
-    {
-     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
-     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
-    }
-   ]
-  },
-  {
-   "id": "italgas",
-   "cat": "italia",
-   "tag": "Utility · Italia",
-   "fronte": "Italgas: cosa ha digitalizzato con Salesforce?",
-   "nome": "Italgas",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Soluzione",
-     "l": [
-      "Portale per le società di vendita al posto di processi manuali e PEC",
-      "Reclami raccolti con Experience Cloud e gestiti con Service Cloud, da circa 2.500 dipendenti",
-      "Contact center del pronto intervento migrato in 4 mesi, con SMS di aggiornamento al cliente"
-     ]
-    },
-    {
-     "h": "Risultato",
-     "t": "Circa 4.000 chiamate al giorno gestite con la nuova piattaforma."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Utility grande e regolata: esempio di servizio clienti e portali, prima dell'arrivo degli agenti."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · caso Italgas",
-     "u": "https://www.salesforce.com/it/customer-stories/italgas/"
-    }
-   ]
-  },
-  {
-   "id": "ercopac",
-   "cat": "italia",
-   "tag": "Manifattura · Italia",
-   "fronte": "Ercopac: perché è un buon esempio di azienda media?",
-   "nome": "Ercopac",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Chi è",
-     "t": "Azienda di Scandiano (Reggio Emilia) nata a fine 2022, produce pallettizzatori e avvolgitrici; 55 dipendenti e filiali in Francia, Spagna, Messico e Tunisia."
-    },
-    {
-     "h": "Soluzione",
-     "t": "Partita con Pro Suite, poi passata ad Agentforce Sales per 14 commerciali e ad Agentforce Service per 3 persone in assistenza; Slack in arrivo."
-    },
-    {
-     "h": "Risultati",
-     "t": "Conversione dei lead più alta e tempi di risoluzione dei ticket più bassi, senza numeri pubblicati."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Mostra il percorso di crescita: si parte piccoli e si sale di edizione."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · caso Ercopac",
-     "u": "https://www.salesforce.com/it/customer-stories/ercopac-grows-with-salesforce/"
-    }
-   ]
-  },
-  {
-   "id": "pharma-italia",
-   "cat": "italia",
-   "tag": "Farmaceutico · Italia",
-   "fronte": "Menarini e Fidia: cosa fanno con Life Sciences Cloud?",
-   "nome": "Menarini",
-   "alias": [
-    "Fidia"
-   ],
-   "retro": [
-    {
-     "h": "Cosa fanno",
-     "l": [
-      "Menarini: personalizzazione con l'AI e rapporto omnicanale con i medici",
-      "Fidia Farmaceutici: unisce rapporto con i medici e ciclo preventivo-ordine su una sola piattaforma, con Data Cloud (progetto in corso); tra i primi ad adottare Customer Engagement"
-     ]
-    },
-    {
-     "h": "Contesto",
-     "t": "Fanno parte delle oltre 70 aziende che hanno scelto Life Sciences Cloud, con Pfizer, Takeda e Boehringer Ingelheim."
-    },
-    {
-     "h": "Perché citarlo",
-     "t": "Esempi italiani per qualsiasi prospect farmaceutico."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce · chi ha scelto Life Sciences Cloud",
-     "u": "https://www.salesforce.com/news/stories/industry-leaders-choose-life-sciences-cloud/"
-    },
-    {
-     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
-     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
-    }
-   ]
-  },
-  {
-   "id": "altri-italia",
-   "cat": "italia",
-   "tag": "Italia",
-   "fronte": "Altri clienti italiani da saper nominare",
-   "nome": "",
-   "alias": [],
-   "retro": [
-    {
-     "h": "Grandi nomi",
-     "t": "Ferrari, Enel, UniCredit, INPS, Trenitalia, Telepass: citati da Salesforce a giugno 2026."
-    },
-    {
-     "h": "Con un caso pubblicato",
-     "l": [
-      "Amplifon: progetto «Symphony» per uniformare vendite e assistenza",
-      "Vista Vision: Health Cloud e Marketing Cloud per pazienti e percorsi clinici",
-      "Eurotherm: Sales, Service, Account Engagement e CPQ",
-      "Billoo: circa mezzo milione di utenti con processi automatizzati",
-      "Furla: dal multicanale all'omnicanale, con vista completa del cliente"
-     ]
-    },
-    {
-     "h": "Al World Tour di Milano 2026",
-     "t": "Boggi Milano, Safilo, Euronics e Leapmotor con casi d'uso dal vivo."
-    }
-   ],
-   "fonti": [
-    {
-     "t": "Salesforce Italia · investimento da 1 mld $, 16 giu 2026",
-     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/16/1-billion-ai-transformation-investment-italy/"
-    },
-    {
-     "t": "Salesforce Italia · storie dei clienti",
-     "u": "https://www.salesforce.com/it/agentforce/customer-stories/"
-    },
-    {
-     "t": "Salesforce Italia · World Tour Milano, 11 giu 2026",
-     "u": "https://www.salesforce.com/it/news/press-releases/2026/06/11/da-sperimentazione-a-trasformazione-salesforce-riunisce-a-milano-le-imprese-che-hanno-scelto-lai-agentica/"
-    }
-   ]
-  },
-  {
    "id": "italia-contesto",
-   "cat": "italia",
+   "cat": "azienda",
    "tag": "Contesto · Italia",
    "fronte": "Salesforce in Italia: cosa è stato annunciato a giugno 2026?",
    "nome": "Salesforce",
@@ -2269,17 +2178,17 @@
     },
     {
      "h": "Casi da citare",
-     "t": "Telepass: 87% risolto in autonomia. Adecco: l'agente ha gestito il 51% delle conversazioni fuori orario."
+     "t": "ISDIN, dermocosmesi in farmacia: con Service Cloud tempo di risoluzione -35% e soddisfazione +28%. Per un numero sull'agente: Telepass risolve da solo l'87% delle richieste."
     }
    ],
    "fonti": [
     {
-     "t": "Salesforce · caso Telepass",
-     "u": "https://www.salesforce.com/customer-stories/telepass/"
+     "t": "WAM (partner) · progetto ISDIN",
+     "u": "https://wam.global/work/isdin/"
     },
     {
-     "t": "Salesforce · comunicato Agentforce 360, ott 2025",
-     "u": "https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/"
+     "t": "Salesforce · caso Telepass",
+     "u": "https://www.salesforce.com/customer-stories/telepass/"
     }
    ]
   },
@@ -2300,8 +2209,8 @@
      "t": "Senza dati unificati gli agenti rispondono in modo generico."
     },
     {
-     "h": "Caso da citare",
-     "t": "Telepass partiva da dati sparsi in 62 database esterni."
+     "h": "Casi da citare",
+     "t": "Pierre Fabre unisce farmaco e dermocosmesi su un solo CRM con Data 360; Chiesi avrà una vista unica di medici, ospedali e farmacie."
     }
    ],
    "fonti": [
@@ -2310,8 +2219,12 @@
      "u": "https://www.salesforceben.com/salesforce-data-cloud-renamed-to-data-360-as-part-of-agentforce-360/"
     },
     {
-     "t": "Salesforce · caso Telepass",
-     "u": "https://www.salesforce.com/customer-stories/telepass/"
+     "t": "Salesforce · Pierre Fabre sceglie Agentforce Life Sciences, mag 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/05/21/pierre-fabre-agentforce-life-sciences-customer-engagement/"
+    },
+    {
+     "t": "Salesforce · Chiesi sceglie Agentforce Life Sciences, apr 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/04/20/chiesi-group-agentforce-life-sciences-transforms-customer-engagement/"
     },
     {
      "t": "Salesforce · acquisizione di Informatica completata",
@@ -2393,11 +2306,11 @@
     },
     {
      "h": "Perché",
-     "t": "Più tempo con i medici e meno lavoro amministrativo; dati sulle visite affidabili per il management."
+     "t": "Più tempo con i professionisti e meno lavoro amministrativo; dati sulle visite affidabili per il management."
     },
     {
      "h": "Casi da citare",
-     "t": "Takeda, con 25.000 richieste dei medici gestite; in Italia Menarini e Fidia."
+     "t": "Chiesi: Agentforce aiuterà 3.300 utenti a preparare le visite e scrivere le note. Haleon: 4.500 persone sul campo, con l'obiettivo di ridurre il lavoro amministrativo. In Italia anche Menarini e Fidia."
     }
    ],
    "fonti": [
@@ -2406,8 +2319,12 @@
      "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
     },
     {
-     "t": "Salesforce · caso Takeda",
-     "u": "https://www.salesforce.com/customer-stories/takeda"
+     "t": "Salesforce · Chiesi sceglie Agentforce Life Sciences, apr 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/04/20/chiesi-group-agentforce-life-sciences-transforms-customer-engagement/"
+    },
+    {
+     "t": "Business Wire · Haleon sceglie Salesforce, ott 2025",
+     "u": "https://www.businesswire.com/news/home/20251008924109/en/Haleon-Selects-Salesforce-Agentforce-Life-Sciences-Cloud-for-Customer-Engagement-to-Improve-Engagement-with-Pharmacies-and-Healthcare-Professionals-with-AI"
     },
     {
      "t": "Salesforce · chi ha scelto Life Sciences Cloud",
@@ -2425,7 +2342,7 @@
    "retro": [
     {
      "h": "Proposta",
-     "t": "Consumer Goods: Retail Execution e Visit Assistant per pianificare le visite e raccogliere dati nel punto vendita, Trade Promotion Management per le promozioni, Tableau per l'analisi."
+     "t": "Due strade: Consumer Goods (visite e controlli nel punto vendita, promozioni, ordini) oppure le funzioni per il consumer health di Life Sciences Cloud (sell-in, sell-out, promozioni, ordini). Tableau per vedere cosa funziona."
     },
     {
      "h": "Perché",
@@ -2433,13 +2350,25 @@
     },
     {
      "h": "Casi da citare",
-     "t": "PepsiCo e L'Oréal tra i clienti consumer goods."
+     "t": "Pierre Fabre: sell-in, sell-out e punto vendita sullo stesso CRM, in arrivo. Haleon: obiettivo dati su trend d'acquisto e marketing nel punto vendita. Sigvaris: Consumer Goods Cloud per farmacie e negozi specializzati."
     }
    ],
    "fonti": [
     {
      "t": "Salesforce · Consumer Goods",
      "u": "https://www.salesforce.com/consumer-goods/"
+    },
+    {
+     "t": "Salesforce · Pierre Fabre sceglie Agentforce Life Sciences, mag 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/05/21/pierre-fabre-agentforce-life-sciences-customer-engagement/"
+    },
+    {
+     "t": "Business Wire · Haleon sceglie Salesforce, ott 2025",
+     "u": "https://www.businesswire.com/news/home/20251008924109/en/Haleon-Selects-Salesforce-Agentforce-Life-Sciences-Cloud-for-Customer-Engagement-to-Improve-Engagement-with-Pharmacies-and-Healthcare-Professionals-with-AI"
+    },
+    {
+     "t": "Salesforce · Sigvaris Group, mar 2026",
+     "u": "https://www.salesforce.com/eu/blog/trailblazer-sigvaris-group/"
     }
    ]
   },
@@ -2549,7 +2478,7 @@
     },
     {
      "h": "Casi da citare",
-     "t": "Salesforce stessa è partita con 200 utenti per quattro settimane; Telepass ha visto il ritorno dell'investimento entro 10 settimane."
+     "t": "Salesforce stessa è partita con 200 utenti per quattro settimane; Sigvaris è partita da un solo paese, la Svizzera, in 4 mesi."
     }
    ],
    "fonti": [
@@ -2566,8 +2495,92 @@
      "u": "https://www.salesforce.com/it/agentforce/use-cases/customer-zero/"
     },
     {
-     "t": "Salesforce · caso Telepass",
-     "u": "https://www.salesforce.com/customer-stories/telepass/"
+     "t": "Salesforce · Sigvaris Group, mar 2026",
+     "u": "https://www.salesforce.com/eu/blog/trailblazer-sigvaris-group/"
+    }
+   ]
+  },
+  {
+   "id": "sit-quale-cloud",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Siamo un'azienda di salute orale: lavoriamo con dentisti, igienisti e farmacie, in tanti paesi.» Quale soluzione proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Life Sciences Cloud for Customer Engagement per il lavoro con i professionisti (visite, campioni, contenuti scientifici approvati, consensi), con Data 360 per una vista unica su professionisti e farmacie e Agentforce per preparare visite e note."
+    },
+    {
+     "h": "Alternativa",
+     "t": "Consumer Goods Cloud, se il peso maggiore è la vendita in farmacia: visite al punto vendita, ordini, promozioni."
+    },
+    {
+     "h": "Come decidere",
+     "t": "In discovery: quanto lavoro va sui professionisti e quanto sulle farmacie, quanti paesi e partner sono coinvolti, quale CRM usano oggi."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "Haleon e Pierre Fabre (consumer health su Life Sciences Cloud), Sigvaris (Consumer Goods Cloud)."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · Life Sciences Cloud for Customer Engagement",
+     "u": "https://www.salesforce.com/ap/news/stories/life-sciences-cloud-for-customer-engagement-availability/"
+    },
+    {
+     "t": "Business Wire · Haleon sceglie Salesforce, ott 2025",
+     "u": "https://www.businesswire.com/news/home/20251008924109/en/Haleon-Selects-Salesforce-Agentforce-Life-Sciences-Cloud-for-Customer-Engagement-to-Improve-Engagement-with-Pharmacies-and-Healthcare-Professionals-with-AI"
+    },
+    {
+     "t": "Salesforce · Pierre Fabre sceglie Agentforce Life Sciences, mag 2026",
+     "u": "https://www.salesforce.com/news/press-releases/2026/05/21/pierre-fabre-agentforce-life-sciences-customer-engagement/"
+    },
+    {
+     "t": "Salesforce · Sigvaris Group, mar 2026",
+     "u": "https://www.salesforce.com/eu/blog/trailblazer-sigvaris-group/"
+    },
+    {
+     "t": "Salesforce · Consumer Goods",
+     "u": "https://www.salesforce.com/consumer-goods/"
+    }
+   ]
+  },
+  {
+   "id": "sit-formazione",
+   "cat": "situazioni",
+   "tag": "",
+   "fronte": "«Formiamo dentisti, igienisti e farmacisti, ma tra una visita e l'altra il rapporto si raffredda.» Cosa proponi?",
+   "nome": "",
+   "alias": [],
+   "retro": [
+    {
+     "h": "Proposta",
+     "t": "Agentforce Marketing collegato al CRM degli informatori: inviti a corsi ed eventi, nuovi studi e contenuti scelti in base al profilo del professionista."
+    },
+    {
+     "h": "Perché",
+     "t": "Il rapporto continua tra una visita e l'altra, senza moltiplicare le visite."
+    },
+    {
+     "h": "Casi da citare",
+     "t": "Bayer Consumer Health: contatti digitali per medico +400%. Dental Cremer: apertura delle email +144% verso gli studi dentistici."
+    }
+   ],
+   "fonti": [
+    {
+     "t": "Salesforce · caso Bayer Consumer Health",
+     "u": "https://www.salesforce.com/eu/customer-stories/bayer/"
+    },
+    {
+     "t": "Salesforce · caso Dental Cremer",
+     "u": "https://www.salesforce.com/br/customer-success-stories/dental-cremer/"
+    },
+    {
+     "t": "Salesforce · elenco prodotti",
+     "u": "https://www.salesforce.com/products/"
     }
    ]
   }

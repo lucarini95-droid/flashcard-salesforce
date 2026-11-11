@@ -9,7 +9,7 @@ Flashcard per studiare i prodotti Salesforce e i casi cliente, una carta alla vo
 - **Tocca la carta** per girarla: da un lato la domanda, dall'altro la risposta con le fonti.
 - **Scorri a destra** (o ✓) se la sapevi, **a sinistra** (o ✕) se va ripassata.
 - **↶** annulla l'ultima scelta, **⟲** gira la carta.
-- In alto scegli la **categoria** (Piattaforma e AI, Cloud, Settori, Casi esteri, Casi Italia, Situazioni) e la **scheda**:
+- In alto scegli la **categoria** (Simili a Curasept, Piattaforma e AI, Cloud, Settori, Situazioni, Salesforce) e la **scheda**:
   - *Da studiare*: tutte le carte non ancora sapute
   - *Da ripassare*: solo quelle sbagliate
   - *Sapute*: per ricontrollare quelle che sai già
@@ -42,7 +42,7 @@ Ogni carta in `cards.json` ha questi campi:
 ```json
 {
   "id": "telepass",                 // unico e stabile: i progressi sono legati a questo
-  "cat": "italia",                  // ai, cloud, settori, estero, italia, situazioni
+  "cat": "simili",                  // simili, ai, cloud, settori, situazioni, azienda
   "tag": "Mobilità · Italia",       // etichetta facoltativa sul fronte
   "fronte": "Telepass: cosa ha fatto con Agentforce?",
   "nome": "Telepass",               // parola nascosta in "Parti dalla risposta"
